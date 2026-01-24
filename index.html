@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callio - Stay Anonymous on Every Call | Waitlist</title>
+    <meta name="description" content="Join the Callio waitlist! Protect your privacy with randomized caller names. Coming soon to Google Play Store.">
+    <!-- Import a nice font for the logo text if needed, and general body -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-purple: #C084FC;
+            --dark-purple: #7e22ce; /* purple-700 approx */
+            --bg-color: #C084FC;
+            --text-color: #1f2937; /* gray-900 */
+            --card-bg: rgba(255, 255, 255, 0.9);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow: hidden; /* Prevent body scroll, handle in .page */
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* Page wrapper */
+        .page {
+            display: none;
+            height: 100vh;
+            width: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: var(--bg-color); /* Ensure all pages have the purple background */
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Home Page Scroll Snap */
+        #home-page {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            width: 100%;
+            padding: 2rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            scroll-snap-align: start;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes floatHorizontal {
+            0% { transform: translateX(-50px) rotate(-5deg); }
+            50% { transform: translateX(50px) rotate(5deg); }
+            100% { transform: translateX(-50px) rotate(-5deg); }
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-color: var(--bg-color);
+            text-align: center;
+        }
+
+        .hero-logo {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+            animation: float 3.5s ease-in-out infinite;
+        }
+
+        .brand-name {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 3rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-content {
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .waitlist-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+        }
+
+        .waitlist-form input {
+            flex: 1;
+            min-width: 250px;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            outline: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .waitlist-form input:focus {
+            transform: scale(1.02);
+        }
+
+        .waitlist-form button {
+            padding: 1rem 2.5rem;
+            background: white;
+            color: var(--dark-purple);
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .waitlist-form button:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            background-color: #f8fafc;
+        }
+
+        /* Features Section */
+        .features-section {
+            background: white;
+            /* Reverted to flex via section default styles to center content vertically */
+            padding-top: 2rem; 
+        }
+        
+        .features-section .container {
+             /* Removed explicit height: 100% to allow vertical centering */
+             height: auto;
+             display: flex;
+             flex-direction: column;
+             justify-content: center;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 1rem;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: var(--dark-purple);
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        /* Merged Final Section (Download + Nav + Footer) */
+        .final-section {
+            background-color: var(--bg-color);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 3rem;
+        }
+
+        .final-section h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem; /* Reduced bottom margin to bring mascot closer */
+            font-family: 'Fredoka', sans-serif;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .final-mascot {
+            width: 150px;
+            height: auto;
+            margin: 0 auto 2rem;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+            animation: floatHorizontal 4s ease-in-out infinite;
+        }
+
+        .download-btn {
+            background: white;
+            color: #333;
+            padding: 1.2rem 2.5rem;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            background-color: #f8fafc;
+        }
+        
+        .download-btn svg {
+            width: 32px;
+            height: 32px;
+            color: var(--dark-purple);
+        }
+
+        .nav-buttons-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            border: 2px solid rgba(255,255,255,0.3);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            background: white;
+            color: var(--dark-purple);
+            border-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer in Final Section */
+        .footer-content {
+            margin-top: 3rem;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+
+        .footer-content a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.6;
+            margin: 0 0.5rem;
+            transition: opacity 0.3s;
+        }
+
+        .footer-content a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        /* Common Page Content Card Style */
+        .content-card {
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            padding: 3rem 2rem;
+            text-align: left; /* Default left align for text */
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.5s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Pages (FAQ, Contact, Privacy) */
+        .faq-page, .contact-page, .privacy-page {
+            /* Background handled by .page now */
+        }
+        
+        .content-page-container {
+             max-width: 900px;
+             margin: 0 auto;
+             padding: 4rem 1.5rem;
+             min-height: 100vh;
+             display: flex;
+             flex-direction: column;
+             justify-content: center;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .page-mascot {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .page-header h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 2.5rem;
+            color: white; /* Changed to white to contrast with purple bg */
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .page-header p {
+            color: rgba(255, 255, 255, 0.9); /* Lighter text for description */
+            font-size: 1.2rem;
+        }
+
+        /* FAQ specific */
+        .faq-item {
+            background: #f9fafb;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary-purple);
+            transform: translateX(5px);
+            background: #fff;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 1rem;
+            color: #555;
+            line-height: 1.6;
+            display: none;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+            animation: fadeInUp 0.3s ease-out;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            color: var(--primary-purple);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        /* Contact specific */
+        .contact-content {
+            text-align: center;
+        }
+        
+        .contact-card {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .contact-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-purple);
+            font-family: 'Fredoka', sans-serif;
+        }
+        
+        .contact-card p {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-btn {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            background: var(--primary-purple);
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(192, 132, 252, 0.4);
+        }
+
+        .contact-btn:hover {
+            background: var(--dark-purple);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(126, 34, 206, 0.4);
+        }
+
+        /* Privacy */
+        .privacy-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary-purple);
+            margin: 1.5rem 0 0.75rem;
+            font-family: 'Fredoka', sans-serif;
+        }
+        
+        .privacy-card h3:first-child {
+            margin-top: 0;
+        }
+
+        .privacy-card p, .privacy-card li {
+            color: #4b5563;
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+        
+        .privacy-card ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-card a {
+            color: var(--primary-purple);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-btn {
+            display: block;
+            width: fit-content;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            background: white;
+            color: var(--dark-purple);
+            border-color: white;
+        }
+
+        /* Success/Error Messages */
+        .message {
+            display: none;
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            margin-top: 1.5rem;
+            text-align: center;
+            animation: fadeIn 0.3s ease-in;
+            font-weight: 500;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.show {
+            display: block;
+        }
+
+        .success-message {
+            background: #ffffff;
+            color: #10b981;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .error-message {
+            background: #ffffff;
+            color: #ef4444;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .message .ghost-icon {
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Coming Soon Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 400px;
+            animation: slideIn 0.3s ease-out;
+            position: relative;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-content h3 {
+            font-size: 2rem;
+            color: var(--primary-purple);
+            margin-bottom: 1rem;
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .modal-close {
+            background: var(--primary-purple);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 1.5rem;
+        }
+
+        .modal-close:hover {
+            background: var(--dark-purple);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2rem; }
+            .hero-content p { font-size: 1rem; }
+            .waitlist-form { flex-direction: column; }
+            .waitlist-form input, .waitlist-form button { width: 100%; }
+            .section-title { font-size: 2rem; }
+            
+            #home-page section {
+                min-height: 100vh;
+                height: auto;
+                padding: 4rem 1.5rem;
+            }
+            
+            .content-page-container {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Home Page -->
+    <div id="home-page" class="page active">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container hero-content">
+                <img src="https://qoqbdiixztolvtcjdnle.supabase.co/storage/v1/object/public/Storage/Callio.png" alt="Callio Logo" class="hero-logo">
+                <div class="brand-name">CALLIO</div>
+                
+                <h1>Stay Anonymous on Every Call</h1>
+                <p>Callio protects your privacy by displaying random names in call logs instead of real caller information.</p>
+                
+                <form class="waitlist-form" onsubmit="joinWaitlist(event)">
+                    <input type="email" id="email-input" placeholder="Enter your email" required>
+                    <button type="submit">Join Waitlist</button>
+                </form>
+                
+                <!-- Success Message -->
+                <div class="message success-message" id="success-message">
+                    <span class="ghost-icon">👻</span>
+                    <strong>Boo-yeah!</strong> You're on the list! We'll haunt your inbox when Callio launches.
+                </div>
+                
+                <!-- Error Message for Duplicate -->
+                <div class="message error-message" id="error-message">
+                    <span class="ghost-icon">👻</span>
+                    <span id="error-text">Oops!</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="container">
+                <h2 class="section-title">Why Choose Callio?</h2>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">🔒</span>
+                        <h3>Complete Privacy</h3>
+                        <p>Randomized names keep your call logs private. No one can see who you're really talking to.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <span class="feature-icon">👻</span>
+                        <h3>No Login Required</h3>
+                        <p>We don't collect any personal data. No account, no tracking, just privacy.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <span class="feature-icon">🌍</span>
+                        <h3>Regional Names</h3>
+                        <p>Choose from 6+ regions including US, UK, France, Germany, Spain, and India.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <span class="feature-icon">✨</span>
+                        <h3>Easy to Use</h3>
+                        <p>Simple interface with cute animated mascots. Just install and you're protected.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <span class="feature-icon">💸</span>
+                        <h3>Affordable</h3>
+                        <p>€5/week or €20/year. Cancel anytime, no hidden fees.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <span class="feature-icon">📱</span>
+                        <h3>Works Seamlessly</h3>
+                        <p>Integrates perfectly with your Android device without affecting call quality.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Merged Final Section: Downloads + Footer + Nav -->
+        <section class="final-section">
+            <div class="container">
+                <h2>Ready to get spooky?</h2>
+                
+                <!-- Animated Mascot -->
+                <img src="https://qoqbdiixztolvtcjdnle.supabase.co/storage/v1/object/public/Storage/calliolove.png" alt="Callio Love" class="final-mascot">
+
+                <div style="margin-bottom: 3rem;">
+                    <button class="download-btn" onclick="showComingSoon('Android')">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24c-2.86-1.21-6.08-1.21-8.94 0L5.65 5.67c-.19-.28-.54-.38-.83-.22-.3.16-.42.54-.26.85l1.84 3.18C4.37 10.97 2.89 13.47 2.89 16.3h18.23c-.01-2.83-1.49-5.33-3.52-6.82zM7.4 14.9c-.48 0-.87-.39-.87-.87s.39-.87.87-.87.87.39.87.87-.39.87-.87.87zm9.2 0c-.48 0-.87-.39-.87-.87s.39-.87.87-.87.87.39.87.87-.39.87-.87.87z"/>
+                        </svg>
+                        <span>Download for Android</span>
+                    </button>
+                </div>
+
+                <div class="nav-buttons-container">
+                    <button class="nav-btn" onclick="showPage('faq-page')">FAQ</button>
+                    <button class="nav-btn" onclick="showPage('contact-page')">Contact</button>
+                    <button class="nav-btn" onclick="showPage('privacy-page')">Privacy Policy</button>
+                </div>
+                
+                <div class="footer-content">
+                    <p>&copy; 2026 Callio. All rights reserved. Made with privacy in mind.</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.8rem;">
+                        <a href="#" onclick="showAdmin(); return false;">Admin</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FAQ Page -->
+    <div id="faq-page" class="page faq-page">
+        <div class="content-page-container">
+            <div class="page-header">
+                <img src="https://qoqbdiixztolvtcjdnle.supabase.co/storage/v1/object/public/Storage/callioexcited.png" alt="Callio Excited" class="page-mascot">
+                <h1>Frequently Asked Questions</h1>
+                <p>Find answers to common questions about Callio</p>
+            </div>
+            
+            <div class="content-card faq-list">
+                <div class="faq-item" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
+                        How does Callio protect my privacy?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Callio replaces caller information with random generated names in your call logs. Your real contacts remain unchanged on your device, ensuring complete privacy.
+                    </div>
+                </div>
+                
+                <div class="faq-item" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
+                        Will this affect my actual contacts?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        No, Callio only changes what appears in call logs. Your contact list and phone functionality remain completely normal.
+                    </div>
+                </div>
+                
+                <div class="faq-item" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
+                        Can I choose names from different countries?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes! Premium users can select from 6+ regional name databases including US, UK, France, Germany, Spain, and India.
+                    </div>
+                </div>
+                
+                <div class="faq-item" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
+                        How much does Callio cost?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Callio offers two subscription plans: €5 per week or €20 per year (save €240). You can cancel anytime with no hidden fees.
+                    </div>
+                </div>
+                
+                <div class="faq-item" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
+                        Does Callio collect my personal data?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        No. Callio requires no login and collects no personal information. All data stays on your device. Your privacy is our top priority.
+                    </div>
+                </div>
+                
+                <div class="faq-item" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
+                        When will Callio be available?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        We're working hard to launch on the Google Play Store soon! Join our waitlist to be notified immediately when we go live.
+                    </div>
+                </div>
+                
+                <div class="faq-item" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
+                        Is Callio available for iOS?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Currently, Callio is being developed for Android. An iOS version may be available in the future based on demand.
+                    </div>
+                </div>
+            </div>
+
+            <button class="nav-btn back-btn" onclick="showPage('home-page')">Back to Home</button>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact-page" class="page contact-page">
+        <div class="content-page-container">
+            <div class="page-header">
+                <img src="https://qoqbdiixztolvtcjdnle.supabase.co/storage/v1/object/public/Storage/calliopanic.png" alt="Callio Panic" class="page-mascot">
+                <h1>Get in Touch</h1>
+                <p>Have questions or feedback? We'd love to hear from you!</p>
+            </div>
+            
+            <div class="content-card contact-card">
+                <h3>Contact Us</h3>
+                <p>Our support team is here to help you with any questions or concerns.</p>
+                <a href="mailto:support@callio.app" class="contact-btn">support@callio.app</a>
+            </div>
+
+            <button class="nav-btn back-btn" onclick="showPage('home-page')">Back to Home</button>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Page -->
+    <div id="privacy-page" class="page privacy-page">
+        <div class="content-page-container">
+            <div class="page-header">
+                <img src="https://qoqbdiixztolvtcjdnle.supabase.co/storage/v1/object/public/Storage/Callioscared.png" alt="Callio Scared" class="page-mascot">
+                <h1>Privacy Policy</h1>
+                <p>Your privacy is our priority</p>
+            </div>
+            
+            <div class="content-card privacy-card">
+                <p><strong>Last Updated: January 01, 2026</strong></p>
+                
+                <h3>Our Commitment to Your Privacy</h3>
+                <p>At Callio, your privacy is our top priority. We designed Callio from the ground up with your privacy in mind. This app is safe to use because we don't collect, store, or share any of your personal information.</p>
+                
+                <h3>Data Collection</h3>
+                <p><strong>We do not collect any personal data.</strong> Callio operates entirely on your device. Your call logs, contacts, and usage patterns are never transmitted to our servers or any third parties.</p>
+                
+                <h3>No Login or Account Required</h3>
+                <p>You don't need to create an account or provide any personal information to use Callio. No email, no phone number, no tracking. Just install and use.</p>
+                
+                <h3>Local Storage</h3>
+                <p>All randomized names and call logs are stored locally on your device. You have complete control and can clear this data anytime from the Settings page within the app.</p>
+                
+                <h3>No Third-Party Sharing</h3>
+                <p>We never share your data with:</p>
+                <ul>
+                    <li>Advertisers</li>
+                    <li>Analytics companies</li>
+                    <li>Data brokers</li>
+                    <li>Any other third parties</li>
+                </ul>
+                <p>Your privacy is not for sale.</p>
+                
+                <h3>Advertising</h3>
+                <p>Callio displays advertisements to support the free version of the app. However, <strong>we do not collect or share your personal data with advertisers.</strong> Ads are served through third-party ad networks, which may use non-personal information such as your device type and general location (country/region level only) to show relevant ads. No call logs, contacts, or usage patterns are ever shared with ad networks.</p>
+                <p>Premium subscribers enjoy an ad-free experience.</p>
+                
+                <h3>Subscription & Payment Information</h3>
+                <p>Subscriptions are processed through the Google Play Store. We don't handle or store your payment information. Your billing is managed securely by Google.</p>
+                
+                <h3>Permissions</h3>
+                <p>Callio requires certain Android permissions to function:</p>
+                <ul>
+                    <li><strong>Phone/Call Logs:</strong> To display randomized names in your call logs</li>
+                    <li><strong>Contacts:</strong> To map randomized names to your contacts (data never leaves your device)</li>
+                </ul>
+                <p>All permissions are used solely for the app's functionality and no data is ever transmitted externally.</p>
+                
+                <h3>Cookies & Tracking</h3>
+                <p>We do not use cookies, analytics, or any tracking technologies. We have no idea how you use the app, and that's by design.</p>
+                
+                <h3>Children's Privacy</h3>
+                <p>Callio does not knowingly collect information from children under 13. The app is designed for general audiences.</p>
+                
+                <h3>Changes to This Policy</h3>
+                <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last Updated" date.</p>
+                
+                <h3>Contact Us</h3>
+                <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+                <p><strong>Email:</strong> <a href="mailto:support@callio.app">support@callio.app</a></p>
+            </div>
+
+            <button class="nav-btn back-btn" onclick="showPage('home-page')">Back to Home</button>
+        </div>
+    </div>
+
+    <!-- Admin Page (Hidden) -->
+    <div id="admin-page" class="page admin-page">
+        <div class="content-page-container">
+            <div class="page-header">
+                <h1>Admin Panel</h1>
+            </div>
+            
+            <div class="admin-login" id="admin-login" style="max-width: 400px; margin: 0 auto; text-align: center;">
+                <p style="margin-bottom: 1rem; color: rgba(255,255,255,0.9);">Enter password to access waitlist</p>
+                <input type="password" id="admin-password" placeholder="Admin Password" style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: none; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <button onclick="adminLogin()" style="width: 100%; padding: 1rem; background: white; color: var(--primary-purple); border: none; border-radius: 10px; font-weight: bold; cursor: pointer;">Login</button>
+            </div>
+            
+            <div class="admin-content" id="admin-content" style="display: none;">
+                <div class="email-list" style="max-width: 800px; margin: 2rem auto; background: white; padding: 2rem; border-radius: 20px;">
+                    <h3 style="margin-bottom: 1rem;">Waitlist Emails (<span id="admin-count">0</span>)</h3>
+                    <div id="email-list-container"></div>
+                </div>
+                <div style="text-align: center;">
+                    <button class="export-btn" onclick="exportEmails()" style="padding: 1rem 2rem; background: var(--primary-purple); color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; margin: 1rem;">Export to CSV</button>
+                    <button class="export-btn" onclick="adminLogout()" style="padding: 1rem 2rem; background: #ef4444; color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; margin: 1rem;">Logout</button>
+                </div>
+                <button class="nav-btn back-btn" onclick="showPage('home-page')">Back to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coming Soon Modal -->
+    <div id="coming-soon-modal" class="modal">
+        <div class="modal-content">
+            <h3>Coming Soon!</h3>
+            <p id="modal-text">The iOS app will be available soon. Join our waitlist to be notified when we launch!</p>
+            <button class="modal-close" onclick="closeModal()">Got it!</button>
+        </div>
+    </div>
+
+    <script>
+        // Initialize
+        const ADMIN_PASSWORD = 'callio2026'; // Change this to your desired password
+        
+        // Quirky ghost messages for duplicate emails
+        const GHOST_MESSAGES = [
+            "Boo! I already have your email. The ghost remembers! 👻",
+            "Spooky! This email is already haunting our waitlist! 👻",
+            "Ghost speaking: We've already got you on the list! 👻",
+            "Eek! Your email already joined the spirit realm! 👻",
+            "Phantom alert! This email is already registered! 👻",
+            "Double trouble! Your email is already in our ghost book! 👻"
+        ];
+        
+        // Load waitlist from localStorage
+        let waitlist = JSON.parse(localStorage.getItem('callioWaitlist') || '[]');
+        updateWaitlistCount();
+
+        // Page navigation
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Join waitlist
+        function joinWaitlist(event) {
+            event.preventDefault();
+            const emailInput = document.getElementById('email-input');
+            const email = emailInput.value.trim().toLowerCase();
+            const successMsg = document.getElementById('success-message');
+            const errorMsg = document.getElementById('error-message');
+            const errorText = document.getElementById('error-text');
+            
+            // Hide any existing messages
+            successMsg.classList.remove('show');
+            errorMsg.classList.remove('show');
+            
+            // Check if email already exists (case-insensitive)
+            const emailExists = waitlist.some(item => item.email.toLowerCase() === email);
+            
+            if (email && !emailExists) {
+                // Add new email with timestamp
+                const newEntry = {
+                    email: email,
+                    timestamp: new Date().toISOString(),
+                    date: new Date().toLocaleDateString()
+                };
+                
+                waitlist.push(newEntry);
+                localStorage.setItem('callioWaitlist', JSON.stringify(waitlist));
+                emailInput.value = '';
+                
+                // Show success message
+                successMsg.classList.add('show');
+                setTimeout(() => {
+                    successMsg.classList.remove('show');
+                }, 6000);
+                
+                updateWaitlistCount();
+            } else if (emailExists) {
+                // Show quirky ghost message for duplicate
+                const randomMessage = GHOST_MESSAGES[Math.floor(Math.random() * GHOST_MESSAGES.length)];
+                errorText.innerHTML = randomMessage;
+                errorMsg.classList.add('show');
+                setTimeout(() => {
+                    errorMsg.classList.remove('show');
+                }, 6000);
+            }
+        }
+
+        // Update waitlist count
+        function updateWaitlistCount() {
+            const adminCountEl = document.getElementById('admin-count');
+            if (adminCountEl) {
+                adminCountEl.textContent = waitlist.length;
+            }
+        }
+
+        // Toggle FAQ
+        function toggleFAQ(element) {
+            element.classList.toggle('active');
+        }
+
+        // Show coming soon modal
+        function showComingSoon(platform) {
+            const modal = document.getElementById('coming-soon-modal');
+            const modalText = document.getElementById('modal-text');
+            modalText.textContent = `The ${platform} app will be available soon. Join our waitlist to be notified when we launch!`;
+            modal.classList.add('active');
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('coming-soon-modal').classList.remove('active');
+        }
+
+        // Show admin section
+        function showAdmin() {
+            showPage('admin-page');
+        }
+
+        // Admin login
+        function adminLogin() {
+            const password = document.getElementById('admin-password').value;
+            if (password === ADMIN_PASSWORD) {
+                document.getElementById('admin-login').style.display = 'none';
+                document.getElementById('admin-content').style.display = 'block';
+                displayEmails();
+            } else {
+                alert('Incorrect password!');
+            }
+        }
+
+        // Admin logout
+        function adminLogout() {
+            document.getElementById('admin-login').style.display = 'block';
+            document.getElementById('admin-content').style.display = 'none';
+            document.getElementById('admin-password').value = '';
+        }
+
+        // Display emails
+        function displayEmails() {
+            const container = document.getElementById('email-list-container');
+            container.innerHTML = '';
+            
+            if (waitlist.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #999; padding: 2rem;">No emails yet</p>';
+                return;
+            }
+            
+            // Sort by newest first
+            const sortedWaitlist = [...waitlist].reverse();
+            
+            sortedWaitlist.forEach((entry, reverseIndex) => {
+                const index = waitlist.length - 1 - reverseIndex;
+                const item = document.createElement('div');
+                item.className = 'email-item';
+                item.style.padding = '1rem';
+                item.style.borderBottom = '1px solid #e5e7eb';
+                item.style.display = 'flex';
+                item.style.justifyContent = 'space-between';
+                item.style.alignItems = 'center';
+                item.innerHTML = `
+                    <div>
+                        <span>${entry.email || entry}</span>
+                        <span class="email-date" style="font-size: 0.85rem; color: #999; margin-left: 1rem;">${entry.date || 'Unknown date'}</span>
+                    </div>
+                    <button onclick="removeEmail(${index})" style="background: #ef4444; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">Remove</button>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        // Remove email
+        function removeEmail(index) {
+            if (confirm('Remove this email from the waitlist?')) {
+                waitlist.splice(index, 1);
+                localStorage.setItem('callioWaitlist', JSON.stringify(waitlist));
+                displayEmails();
+                updateWaitlistCount();
+            }
+        }
+
+        // Export emails to CSV
+        function exportEmails() {
+            if (waitlist.length === 0) {
+                alert('No emails to export!');
+                return;
+            }
+            
+            // Create CSV with headers
+            let csv = 'Email,Date,Timestamp\n';
+            waitlist.forEach(entry => {
+                const email = entry.email || entry;
+                const date = entry.date || 'Unknown';
+                const timestamp = entry.timestamp || '';
+                csv += `${email},${date},${timestamp}\n`;
+            });
+            
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'callio-waitlist-' + new Date().toISOString().split('T')[0] + '.csv';
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('coming-soon-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
