@@ -1,0 +1,21 @@
+{
+  "name": "Callio",
+  "short_name": "Callio",
+  "description": "Missed a call? Find out why they called.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#C084FC",
+  "theme_color": "#7e22ce",
+  "icons": [
+    {
+      "src": "assets/mascot/favicon-64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/mascot/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

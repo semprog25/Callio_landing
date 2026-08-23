@@ -1,1328 +1,643 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Callio — Missed a call? Find out why they called.</title>
-    <meta name="description" content="Callio is your missed-call rescue assistant. Missed a call? Find out why they called — without calling back blindly. Private. On-device. You control every message.">
-    <link rel="canonical" href="https://trycallio.app/" />
-    <meta name="robots" content="index,follow" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Callio" />
-    <meta property="og:title" content="Callio — Missed a call? Find out why they called." />
-    <meta property="og:description" content="Callio is your missed-call rescue assistant. Recover the context behind missed calls from unknown numbers — without calling back blindly." />
-    <meta property="og:url" content="https://trycallio.app/" />
-    <meta property="og:image" content="https://qoqbdiixztolvtcjdnle.supabase.co/storage/v1/object/public/Storage/Callio.png" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Callio — Missed a call? Find out why they called." />
-    <meta name="twitter:description" content="Callio is your missed-call rescue assistant. Private. On-device. You control every message." />
-    <meta name="twitter:image" content="https://qoqbdiixztolvtcjdnle.supabase.co/storage/v1/object/public/Storage/Callio.png" />
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Callio",
-      "alternateName": "Callio Rescue",
-      "url": "https://trycallio.app/",
-      "description": "Callio is your missed-call rescue assistant. Missed a call? Find out why they called.",
-      "publisher": {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Callio — Missed a call? Find out why they called.</title>
+  <meta name="description" content="Callio is your Android missed-call rescue assistant. When you miss a call from an unknown number, Callio helps you find out why they called — without blindly calling back. Local-first. You control every message.">
+  <link rel="canonical" href="https://trycallio.app/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#7e22ce">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Callio">
+  <meta property="og:title" content="Callio — Missed a call? Find out why they called.">
+  <meta property="og:description" content="Recover the context behind missed calls from unknown numbers — without calling back blindly. Local-first. You control every message.">
+  <meta property="og:url" content="https://trycallio.app/">
+  <meta property="og:image" content="https://trycallio.app/assets/mascot/callio-cheerful.png">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Callio — Missed a call? Find out why they called.">
+  <meta name="twitter:description" content="Android missed-call rescue assistant. Local-first. You control every message.">
+  <meta name="twitter:image" content="https://trycallio.app/assets/mascot/callio-cheerful.png">
+  <link rel="icon" type="image/png" href="assets/mascot/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/mascot/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Callio",
+        "url": "https://trycallio.app/",
+        "description": "Missed a call? Find out why they called.",
+        "publisher": { "@id": "https://trycallio.app/#org" }
+      },
+      {
         "@type": "Organization",
+        "@id": "https://trycallio.app/#org",
         "name": "Callio",
         "url": "https://trycallio.app/",
         "email": "support@trycallio.app",
-        "contactPoint": [
-          {
-            "@type": "ContactPoint",
-            "contactType": "customer support",
-            "email": "support@trycallio.app"
-          },
-          {
-            "@type": "ContactPoint",
-            "contactType": "privacy inquiries",
-            "email": "privacy@trycallio.app"
-          }
-        ]
+        "logo": "https://trycallio.app/assets/mascot/callio-cheerful.png"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Callio",
+        "operatingSystem": "Android",
+        "applicationCategory": "UtilitiesApplication",
+        "description": "Missed-call rescue assistant that helps you find out why an unknown number called.",
+        "url": "https://trycallio.app/",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/PreOrder"
+        }
       }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --purple: #c084fc;
+      --purple-mid: #a855f7;
+      --purple-deep: #7e22ce;
+      --purple-ink: #581c87;
+      --purple-soft: #f3e8ff;
+      --ink: #1f1630;
+      --muted: #5b4a72;
+      --cream: #faf7ff;
+      --line: rgba(88,28,135,.12);
+      --shadow: 0 18px 50px rgba(88,28,135,.14);
+      --radius: 22px;
+      --max: 1100px;
     }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-purple: #C084FC;
-            --dark-purple: #7e22ce; /* purple-700 approx */
-            --bg-color: #C084FC;
-            --text-color: #1f2937; /* gray-900 */
-            --card-bg: rgba(255, 255, 255, 0.9);
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            overflow: hidden; /* Prevent body scroll, handle in .page */
-            height: 100vh;
-            width: 100vw;
-        }
-
-        /* Page wrapper */
-        .page {
-            display: none;
-            height: 100vh;
-            width: 100%;
-            overflow-y: auto;
-            overflow-x: hidden;
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: var(--bg-color); /* Ensure all pages have the purple background */
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        /* Home Page Scroll Snap */
-        #home-page {
-            scroll-snap-type: y mandatory;
-            scroll-behavior: smooth;
-        }
-
-        /* Sections */
-        section {
-            min-height: 100vh;
-            width: 100%;
-            padding: 2rem;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            scroll-snap-align: start;
-        }
-
-        .container {
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-            text-align: center;
-        }
-
-        /* Animations */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-
-        @keyframes floatHorizontal {
-            0% { transform: translateX(-50px) rotate(-5deg); }
-            50% { transform: translateX(50px) rotate(5deg); }
-            100% { transform: translateX(-50px) rotate(-5deg); }
-        }
-
-        @keyframes pulse-glow {
-            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
-            70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes wiggle {
-            0%, 100% { transform: rotate(-3deg); }
-            50% { transform: rotate(3deg); }
-        }
-
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .animate-fade-in {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        /* Hero Section */
-        .hero-section {
-            background-color: var(--bg-color);
-            text-align: center;
-        }
-
-        .hero-content {
-            color: white;
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .hero-logo {
-            max-width: 180px;
-            height: auto;
-            margin-bottom: 0.5rem; 
-            position: relative;
-            z-index: 10;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
-            animation: float 3.5s ease-in-out infinite;
-            display: block;
-        }
-
-        .brand-name {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 3rem;
-            color: white;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .brand-tagline {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 1.15rem;
-            color: rgba(255, 255, 255, 0.95);
-            margin-bottom: 1.75rem;
-            font-weight: 400;
-            animation: fadeInUp 0.8s ease-out 0.1s backwards;
-        }
-
-        .brand-logo {
-            max-width: 280px;
-            height: auto;
-            margin-bottom: 0.75rem;
-            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
-            animation: fadeInUp 0.8s ease-out;
-            display: block;
-        }
-
-        .hero-content h1 {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            animation: fadeInUp 0.8s ease-out 0.2s backwards;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.95;
-            line-height: 1.6;
-            animation: fadeInUp 0.8s ease-out 0.4s backwards;
-        }
-
-        .waitlist-form {
-            display: flex;
-            gap: 1rem;
-            max-width: 500px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-            justify-content: center;
-            animation: fadeInUp 0.8s ease-out 0.6s backwards;
-        }
-
-        .waitlist-form input {
-            flex: 1;
-            min-width: 250px;
-            padding: 1rem 1.5rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            outline: none;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
-        }
-
-        .waitlist-form input:focus {
-            transform: scale(1.02);
-        }
-
-        .waitlist-form button {
-            padding: 1rem 2.5rem;
-            background: white;
-            color: var(--dark-purple);
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .waitlist-form button:hover {
-            transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            background-color: #f8fafc;
-        }
-
-        /* Features Section */
-        .features-section {
-            background: white;
-            padding: 0; /* Remove padding to help full screen fit */
-            display: flex;
-            align-items: center; /* Center vertically */
-        }
-        
-        .features-section .container {
-             height: 100%;
-             display: flex;
-             flex-direction: column;
-             justify-content: center;
-             padding: 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: var(--primary-purple);
-            font-family: 'Fredoka', sans-serif;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr); /* Default Mobile: 1 column */
-            gap: 1.5rem;
-            margin-top: 1rem;
-            width: 100%;
-        }
-
-        /* Responsive Breakpoints */
-        @media (min-width: 640px) {
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr); /* Tablet/Large Phone: 2 columns */
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .features-grid {
-                grid-template-columns: repeat(3, 1fr); /* Desktop: 3 columns (Creates 3x2 grid for 6 items) */
-            }
-        }
-
-        .feature-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
-            padding: 1.5rem;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.3s;
-            border: 1px solid rgba(0,0,0,0.05);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .feature-card:hover .feature-icon {
-            transform: scale(1.2) rotate(10deg);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            display: block;
-            margin-bottom: 1rem;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            color: var(--dark-purple);
-        }
-
-        .feature-icon svg {
-            width: 2.5rem;
-            height: 2.5rem;
-        }
-
-        .feature-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.75rem;
-            color: var(--dark-purple);
-            font-weight: 600;
-        }
-
-        .feature-card p {
-            color: #666;
-            line-height: 1.5;
-            font-size: 0.95rem;
-        }
-
-        /* Merged Final Section (Download + Nav + Footer) */
-        .final-section {
-            background-color: var(--bg-color);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            /* Removed fixed gap here to handle it inside container/specific areas */
-        }
-
-        .final-content-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2rem; /* Equal spacing between elements */
-            margin-bottom: 3rem; /* Spacing before nav/footer */
-        }
-
-        .final-section h2 {
-            color: white;
-            font-size: 2.5rem;
-            margin: 0; /* Let flex gap handle spacing */
-            font-family: 'Fredoka', sans-serif;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
-
-        .final-mascot {
-            width: 150px;
-            height: auto;
-            margin: 0; /* Let flex gap handle spacing */
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
-            animation: floatHorizontal 4s ease-in-out infinite;
-        }
-
-        .download-btn {
-            background: white;
-            color: #333;
-            padding: 1.2rem 2.5rem;
-            border-radius: 15px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            transition: all 0.3s;
-            cursor: pointer;
-            border: none;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            margin: 0; /* Let flex gap handle spacing */
-        }
-
-        .download-btn:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-            background-color: #f8fafc;
-        }
-        
-        .download-btn svg {
-            width: 32px;
-            height: 32px;
-            color: var(--dark-purple);
-        }
-
-        .nav-buttons-container {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-
-        .nav-btn {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            border: 2px solid rgba(255,255,255,0.3);
-            font-weight: 600;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-            backdrop-filter: blur(5px);
-        }
-
-        .nav-btn:hover {
-            transform: translateY(-2px);
-            background: white;
-            color: var(--dark-purple);
-            border-color: white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Footer in Final Section */
-        .footer-content {
-            margin-top: 3rem;
-            color: rgba(255,255,255,0.8);
-            font-size: 0.9rem;
-        }
-
-        .footer-content a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.6;
-            margin: 0 0.5rem;
-            transition: opacity 0.3s;
-        }
-
-        .footer-content a:hover {
-            opacity: 1;
-            text-decoration: underline;
-        }
-
-        /* Common Page Content Card Style */
-        .content-card {
-            background: white;
-            border-radius: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            padding: 3rem 2rem;
-            text-align: left; /* Default left align for text */
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.5s ease-out;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* Pages (FAQ, Contact, Privacy) */
-        .faq-page, .contact-page, .privacy-page {
-            /* Background handled by .page now */
-        }
-        
-        .content-page-container {
-             max-width: 900px;
-             margin: 0 auto;
-             padding: 4rem 1.5rem;
-             min-height: 100vh;
-             display: flex;
-             flex-direction: column;
-             justify-content: center;
-        }
-
-        .page-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .page-mascot {
-            width: 140px;
-            height: 140px;
-            object-fit: contain;
-            margin-bottom: 1rem;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        .page-header h1 {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 2.5rem;
-            color: white; /* Changed to white to contrast with purple bg */
-            margin-bottom: 0.5rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .page-header p {
-            color: rgba(255, 255, 255, 0.9); /* Lighter text for description */
-            font-size: 1.2rem;
-        }
-
-        /* FAQ specific */
-        .faq-item {
-            background: #f9fafb;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            border-radius: 15px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            cursor: pointer;
-            transition: all 0.3s;
-            border: 1px solid transparent;
-        }
-
-        .faq-item:hover {
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            border-color: var(--primary-purple);
-            transform: translateX(5px);
-            background: #fff;
-        }
-
-        .faq-question {
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: #333;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .faq-answer {
-            margin-top: 1rem;
-            color: #555;
-            line-height: 1.6;
-            display: none;
-            padding-top: 1rem;
-            border-top: 1px solid #eee;
-            animation: fadeInUp 0.3s ease-out;
-        }
-
-        .faq-item.active .faq-answer {
-            display: block;
-        }
-
-        .faq-toggle {
-            font-size: 1.5rem;
-            color: var(--primary-purple);
-            transition: transform 0.3s;
-        }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(45deg);
-        }
-
-        /* Contact specific */
-        .contact-content {
-            text-align: center;
-        }
-        
-        .contact-card {
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-
-        .contact-card h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--primary-purple);
-            font-family: 'Fredoka', sans-serif;
-        }
-        
-        .contact-card p {
-            color: #666;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        .contact-btn {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            background: var(--primary-purple);
-            padding: 1rem 3rem;
-            border-radius: 50px;
-            display: inline-block;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(192, 132, 252, 0.4);
-        }
-
-        .contact-btn:hover {
-            background: var(--dark-purple);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(126, 34, 206, 0.4);
-        }
-
-        /* Privacy */
-        .privacy-card h3 {
-            font-size: 1.4rem;
-            color: var(--primary-purple);
-            margin: 1.5rem 0 0.75rem;
-            font-family: 'Fredoka', sans-serif;
-        }
-        
-        .privacy-card h3:first-child {
-            margin-top: 0;
-        }
-
-        .privacy-card p, .privacy-card li {
-            color: #4b5563;
-            line-height: 1.7;
-            margin-bottom: 0.75rem;
-            font-size: 0.95rem;
-        }
-        
-        .privacy-card ul {
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .privacy-card a {
-            color: var(--primary-purple);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .back-btn {
-            display: block;
-            width: fit-content;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .back-btn:hover {
-            background: white;
-            color: var(--dark-purple);
-            border-color: white;
-        }
-
-        /* Success/Error Messages */
-        .message {
-            display: none;
-            padding: 1rem 1.5rem;
-            border-radius: 15px;
-            margin-top: 1.5rem;
-            text-align: center;
-            animation: fadeIn 0.3s ease-in;
-            font-weight: 500;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .message.show {
-            display: block;
-        }
-
-        .success-message {
-            background: #ffffff;
-            color: #10b981;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .error-message {
-            background: #ffffff;
-            color: #ef4444;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .message .ghost-icon {
-            font-size: 1.5rem;
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--primary-purple);
-        }
-
-        .message .ghost-icon svg {
-            width: 1.8rem;
-            height: 1.8rem;
-        }
-
-        /* Join waitlist Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 9999;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            backdrop-filter: blur(5px);
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            text-align: center;
-            max-width: 400px;
-            animation: slideIn 0.3s ease-out;
-            position: relative;
-        }
-
-        @keyframes slideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .modal-content h3 {
-            font-size: 2rem;
-            color: var(--primary-purple);
-            margin-bottom: 1rem;
-            font-family: 'Fredoka', sans-serif;
-        }
-
-        .modal-close {
-            background: var(--primary-purple);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-            margin-top: 1.5rem;
-        }
-
-        .modal-close:hover {
-            background: var(--dark-purple);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2rem; }
-            .hero-content p { font-size: 1rem; }
-            .waitlist-form { flex-direction: column; }
-            .waitlist-form input, .waitlist-form button { width: 100%; }
-            .section-title { font-size: 2rem; }
-            
-            #home-page section {
-                min-height: 100vh;
-                height: auto;
-                padding: 4rem 1.5rem;
-            }
-            
-            .content-page-container {
-                padding: 2rem 1rem;
-            }
-        }
-    </style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, system-ui, sans-serif; color: var(--ink); background: var(--cream); line-height: 1.6; overflow-x: hidden; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    .container { width: min(100% - 2rem, var(--max)); margin-inline: auto; }
+    .site-nav { position: sticky; top: 0; z-index: 40; backdrop-filter: blur(12px); background: rgba(192,132,252,.94); border-bottom: 1px solid rgba(255,255,255,.2); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 68px; }
+    .brand { display: inline-flex; align-items: center; gap: .6rem; color: #fff; font-family: Fredoka, sans-serif; font-weight: 700; letter-spacing: .04em; font-size: 1.2rem; }
+    .brand img { width: 34px; height: 34px; object-fit: contain; }
+    .nav-links { display: none; gap: 1.1rem; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,.95); font-weight: 500; font-size: .95rem; }
+    .nav-cta, .nav-links a.nav-cta { background: #fff; color: var(--purple-deep) !important; padding: .65rem 1rem; border-radius: 999px; font-weight: 700; }
+    .menu-btn { border: 0; background: transparent; color: #fff; font-size: 1.4rem; cursor: pointer; }
+    .mobile-menu { display: none; flex-direction: column; gap: .85rem; padding: .25rem 0 1rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: #fff; font-weight: 500; }
+    @media (min-width: 860px) { .nav-links { display: flex; } .menu-btn { display: none; } .mobile-menu { display: none !important; } }
+
+    .hero { color: #fff; padding: 3.2rem 0 4rem; background: radial-gradient(circle at 15% 20%, rgba(255,255,255,.25), transparent 40%), linear-gradient(160deg,#c084fc,#a855f7 45%,#7e22ce); overflow: hidden; }
+    .hero-grid { display: grid; gap: 2rem; align-items: center; }
+    @media (min-width: 900px) { .hero-grid { grid-template-columns: 1.05fr .95fr; gap: 2.5rem; } }
+    .hero-kicker { font-family: Fredoka, sans-serif; font-size: clamp(2.3rem, 6vw, 3.4rem); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin-bottom: .7rem; }
+    .hero h1 { font-family: Fredoka, sans-serif; font-size: clamp(1.75rem, 4.2vw, 2.6rem); line-height: 1.15; font-weight: 600; max-width: 16ch; margin-bottom: .9rem; }
+    .hero-lead { font-size: 1.05rem; max-width: 42ch; opacity: .95; margin-bottom: 1.4rem; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: .75rem; margin-bottom: 1rem; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 999px; padding: .9rem 1.3rem; font-weight: 700; cursor: pointer; transition: transform .2s ease; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: #fff; color: var(--purple-deep); box-shadow: 0 12px 28px rgba(0,0,0,.16); }
+    .btn-secondary { background: rgba(255,255,255,.14); color: #fff; border: 1.5px solid rgba(255,255,255,.42); }
+    .btn-ink { background: var(--purple-deep); color: #fff; }
+    .btn-ghost { background: transparent; color: var(--purple-deep); border: 1.5px solid rgba(126,34,206,.25); }
+    .waitlist { display: flex; flex-wrap: wrap; gap: .65rem; max-width: 470px; }
+    .waitlist input { flex: 1 1 210px; border: 0; border-radius: 999px; padding: .9rem 1.15rem; outline: none; }
+    .hero-note { margin-top: .8rem; font-size: .9rem; opacity: .88; }
+    .hero-visual { position: relative; min-height: 300px; display: grid; place-items: center; }
+    .hero-mascot { width: min(300px, 78%); filter: drop-shadow(0 22px 36px rgba(0,0,0,.22)); animation: floatY 4.5s ease-in-out infinite; }
+    .float-card { position: absolute; background: rgba(255,255,255,.96); color: var(--ink); border-radius: 16px; padding: .7rem .9rem; box-shadow: 0 12px 28px rgba(0,0,0,.15); font-size: .84rem; max-width: 200px; animation: floatSoft 5.5s ease-in-out infinite; }
+    .float-card strong { display: block; color: var(--purple-deep); }
+    .float-card.missed { top: 6%; left: 0; }
+    .float-card.rescue { bottom: 10%; right: 0; animation-delay: -1.4s; }
+    @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+    @keyframes floatSoft { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+
+    section { padding: 4.25rem 0; }
+    .eyebrow { display:inline-block; font-size:.78rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--purple-deep); margin-bottom:.7rem; }
+    .section-title { font-family: Fredoka, sans-serif; font-size: clamp(1.7rem, 3.4vw, 2.4rem); line-height: 1.2; margin-bottom: .8rem; color: var(--purple-ink); }
+    .section-lead { color: var(--muted); font-size: 1.03rem; max-width: 58ch; margin-bottom: 1.8rem; }
+
+    .problem { background: #fff; }
+    .scenario-grid { display:grid; gap:.8rem; }
+    @media (min-width:700px){ .scenario-grid{ grid-template-columns:repeat(2,1fr);} }
+    @media (min-width:1000px){ .scenario-grid{ grid-template-columns:repeat(3,1fr);} }
+    .scenario { background: var(--purple-soft); border:1px solid var(--line); border-radius:18px; padding:1rem 1.1rem; }
+    .frustration { margin-top:1.5rem; background:linear-gradient(135deg,#2e1065,#7e22ce); color:#fff; border-radius:var(--radius); padding:1.4rem 1.5rem; box-shadow:var(--shadow); }
+    .frustration p { margin:.35rem 0; }
+
+    .solution { background: radial-gradient(circle at 8% 15%, rgba(192,132,252,.18), transparent 35%), var(--cream); }
+    .steps { display:grid; gap:1rem; }
+    @media (min-width:900px){ .steps{ grid-template-columns:repeat(4,1fr);} }
+    .step { background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:1.25rem; box-shadow:0 10px 28px rgba(88,28,135,.06); }
+    .step-num { font-family:Fredoka,sans-serif; font-size:2rem; color:var(--purple); font-weight:700; line-height:1; margin-bottom:.55rem; }
+    .step h3 { font-size:1.08rem; margin-bottom:.4rem; color:var(--purple-ink); }
+    .step p { color:var(--muted); font-size:.94rem; }
+    .step img { width:70px; margin-top:.8rem; filter:drop-shadow(0 8px 14px rgba(88,28,135,.15)); }
+
+    .compare { background:#fff; }
+    .compare-grid { display:grid; gap:1rem; }
+    @media (min-width:800px){ .compare-grid{ grid-template-columns:1fr 1fr;} }
+    .compare-card { border-radius:var(--radius); padding:1.5rem; border:1px solid var(--line); }
+    .compare-card.without { background:#f8f5fb; }
+    .compare-card.with { background:linear-gradient(160deg,#f5e9ff,#efe0ff); border-color:rgba(168,85,247,.35); box-shadow:var(--shadow); }
+    .compare-card h3 { font-family:Fredoka,sans-serif; font-size:1.4rem; margin-bottom:1rem; color:var(--purple-ink); }
+    .compare-card ul { list-style:none; display:grid; gap:.65rem; }
+    .compare-card li { padding-left:1.25rem; position:relative; color:var(--muted); }
+    .compare-card li::before { content:""; position:absolute; left:0; top:.55rem; width:.5rem; height:.5rem; border-radius:50%; background:#c4b5fd; }
+    .compare-card.with li { color:var(--ink); font-weight:500; }
+    .compare-card.with li::before { background:var(--purple-deep); }
+
+    .privacy { background:linear-gradient(180deg,#2e1065,#581c87); color:#fff; }
+    .privacy .eyebrow { color:#e9d5ff; }
+    .privacy .section-title { color:#fff; }
+    .privacy .section-lead { color:rgba(255,255,255,.88); }
+    .privacy-grid { display:grid; gap:1rem; }
+    @media (min-width:800px){ .privacy-grid{ grid-template-columns:1.1fr .9fr; align-items:center;} }
+    .privacy-points { display:grid; gap:.75rem; }
+    .privacy-points article { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14); border-radius:16px; padding:1rem 1.1rem; }
+    .privacy-points h3 { font-size:1.02rem; margin-bottom:.25rem; }
+    .privacy-points p { color:rgba(255,255,255,.86); font-size:.94rem; }
+    .privacy-visual { display:grid; place-items:center; }
+    .privacy-visual img { width:min(250px,70%); filter:drop-shadow(0 18px 30px rgba(0,0,0,.35)); }
+    .privacy-caveat { margin-top:1.1rem; font-size:.9rem; color:rgba(255,255,255,.75); }
+
+    .diff { background:var(--cream); }
+    .diff-table { display:grid; gap:.85rem; }
+    @media (min-width:800px){ .diff-table{ grid-template-columns:repeat(3,1fr);} }
+    .diff-col { background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:1.3rem; }
+    .diff-col.callio { border-color:rgba(126,34,206,.35); box-shadow:var(--shadow); background:linear-gradient(180deg,#fff,#f8f0ff); }
+    .diff-col h3 { font-family:Fredoka,sans-serif; margin-bottom:.45rem; color:var(--purple-ink); }
+    .diff-col p { color:var(--muted); }
+    .diff-col.callio p { color:var(--ink); font-weight:500; }
+
+    .guides { background:#fff; }
+    .guide { border-top:1px solid var(--line); padding:1.4rem 0; }
+    .guide:first-of-type { border-top:0; }
+    .guide h3 { font-family:Fredoka,sans-serif; font-size:1.3rem; color:var(--purple-ink); margin-bottom:.55rem; }
+    .guide p, .guide li { color:var(--muted); margin-bottom:.65rem; }
+    .guide ul { padding-left:1.15rem; }
+
+    .faq { background:var(--purple-soft); }
+    .faq-item { background:#fff; border:1px solid var(--line); border-radius:16px; margin-bottom:.7rem; overflow:hidden; }
+    .faq-q { width:100%; text-align:left; background:transparent; border:0; padding:1.05rem 1.15rem; font-weight:600; cursor:pointer; display:flex; justify-content:space-between; gap:1rem; align-items:center; }
+    .faq-q span { color:var(--purple-deep); font-size:1.3rem; }
+    .faq-a { display:none; padding:0 1.15rem 1.1rem; color:var(--muted); }
+    .faq-item.open .faq-a { display:block; }
+    .faq-item.open .faq-q span { transform:rotate(45deg); }
+
+    .trust { background:#fff; }
+    .trust-grid { display:grid; gap:.85rem; }
+    @media (min-width:800px){ .trust-grid{ grid-template-columns:repeat(3,1fr);} }
+    .trust-card { border:1px solid var(--line); border-radius:18px; padding:1.15rem; background:var(--cream); }
+    .trust-card h3 { font-size:1.02rem; margin-bottom:.35rem; color:var(--purple-ink); }
+    .trust-card p { color:var(--muted); font-size:.94rem; }
+    .trust-card a { color:var(--purple-deep); }
+
+    .final-cta { background:radial-gradient(circle at 70% 30%, rgba(255,255,255,.22), transparent 40%), linear-gradient(145deg,#c084fc,#7e22ce); color:#fff; text-align:center; padding:4.25rem 0; }
+    .final-cta img { width:130px; margin:0 auto 1rem; animation:floatY 4s ease-in-out infinite; }
+    .final-cta h2 { font-family:Fredoka,sans-serif; font-size:clamp(1.7rem,4vw,2.4rem); margin-bottom:.65rem; }
+    .final-cta p { max-width:42ch; margin:0 auto 1.25rem; opacity:.95; }
+    .final-cta .waitlist { margin:0 auto; justify-content:center; }
+
+    .site-footer { background:#1f1630; color:rgba(255,255,255,.82); padding:2.4rem 0 1.8rem; font-size:.94rem; }
+    .footer-grid { display:grid; gap:1.4rem; }
+    @media (min-width:800px){ .footer-grid{ grid-template-columns:1.4fr 1fr 1fr;} }
+    .site-footer h3 { color:#fff; font-family:Fredoka,sans-serif; margin-bottom:.5rem; }
+    .site-footer a { color:#e9d5ff; }
+    .footer-bottom { margin-top:1.8rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,.12); display:flex; flex-wrap:wrap; gap:.75rem; justify-content:space-between; font-size:.84rem; opacity:.8; }
+    .admin-link { opacity:.45; }
+
+    .toast { display:none; margin-top:.8rem; background:#fff; color:var(--purple-deep); border-radius:14px; padding:.8rem 1rem; box-shadow:var(--shadow); font-weight:600; }
+    .toast.show { display:block; }
+    .toast.error { color:#b91c1c; }
+    .page-view { display:none; }
+    .page-view.active { display:block; }
+    .content-page { min-height:70vh; padding:3rem 0 4rem; background:var(--cream); }
+    .content-card { background:#fff; border-radius:var(--radius); padding:1.7rem; border:1px solid var(--line); box-shadow:var(--shadow); max-width:820px; margin:0 auto; }
+    .content-card h1 { font-family:Fredoka,sans-serif; color:var(--purple-ink); margin-bottom:.7rem; }
+    .content-card h3 { margin-top:1.3rem; margin-bottom:.4rem; color:var(--purple-ink); }
+    .content-card p, .content-card li { color:var(--muted); margin-bottom:.6rem; }
+    .content-card ul { padding-left:1.15rem; }
+    .back-home { margin-top:1.2rem; }
+    .reveal { opacity:0; transform:translateY(16px); transition:opacity .55s ease, transform .55s ease; }
+    .reveal.in { opacity:1; transform:none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity:1; transform:none; }
+      .hero-mascot, .float-card, .final-cta img { animation:none !important; }
+    }
+  
+    .nav-cta { color: var(--purple-deep) !important; }
+    @media (max-width: 640px) {
+      .cta-row { flex-direction: column; align-items: stretch; }
+      .cta-row .btn { width: 100%; }
+      .waitlist { width: 100%; }
+      .waitlist input, .waitlist .btn { width: 100%; }
+      .float-card { font-size: .78rem; max-width: 160px; }
+      .hero { padding-top: 2.2rem; }
+    }
+
+  </style>
 </head>
 <body>
-    <!-- Home Page -->
-    <div id="home-page" class="page active">
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="container hero-content">
-                <img src="https://qoqbdiixztolvtcjdnle.supabase.co/storage/v1/object/public/Storage/Callio.png" alt="Callio Logo" class="hero-logo">
-                <img src="https://qoqbdiixztolvtcjdnle.supabase.co/storage/v1/object/public/Storage/Calli0logo.png" alt="Callio" class="brand-logo">
-                <p class="brand-tagline">Your missed-call rescue assistant.</p>
-                
-                <h1>Missed a call?<br>Find out why they called.</h1>
-                <p>Callio helps you recover the context behind missed calls from unknown numbers — without blindly calling back.</p>
-                
-                <form class="waitlist-form" onsubmit="joinWaitlist(event)">
-                    <input type="email" id="email-input" placeholder="Enter your email" required>
-                    <button type="submit">Get Callio</button>
-                </form>
-                
-                <!-- Success Message -->
-                <div class="message success-message" id="success-message">
-                    <span class="ghost-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 3a6 6 0 0 0-6 6v9l2-2 2 2 2-2 2 2 2-2 2 2V9a6 6 0 0 0-6-6z"/>
-                            <circle cx="10" cy="11" r="1"/>
-                            <circle cx="14" cy="11" r="1"/>
-                            <path d="M10 14h4"/>
-                        </svg>
-                    </span>
-                    <strong>You're in!</strong> We'll email you when Callio is ready on Google Play.
-                </div>
-                
-                <!-- Error Message for Duplicate -->
-                <div class="message error-message" id="error-message">
-                    <span class="ghost-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 3a6 6 0 0 0-6 6v9l2-2 2 2 2-2 2 2 2-2 2 2V9a6 6 0 0 0-6-6z"/>
-                            <circle cx="10" cy="11" r="1"/>
-                            <circle cx="14" cy="11" r="1"/>
-                            <path d="M10 14h4"/>
-                        </svg>
-                    </span>
-                    <span id="error-text">Oops!</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section class="features-section">
-            <div class="container">
-                <h2 class="section-title">How Callio Rescue works</h2>
-                
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <span class="feature-icon" aria-hidden="true">1</span>
-                        <h3>You miss a call</h3>
-                        <p>Callio notices an unknown missed call and keeps it private on your device.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <span class="feature-icon" aria-hidden="true">2</span>
-                        <h3>Ask why they called</h3>
-                        <p>Callio prepares a short message you can review, edit, and send yourself.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <span class="feature-icon" aria-hidden="true">3</span>
-                        <h3>Get the answer</h3>
-                        <p>When they reply, Callio connects the response to the missed call and helps you decide what to do next.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <span class="feature-icon" aria-hidden="true">🔒</span>
-                        <h3>Private</h3>
-                        <p>Your calls stay yours. No caller database. On-device storage by default.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <span class="feature-icon" aria-hidden="true">✋</span>
-                        <h3>You control every message</h3>
-                        <p>Nothing is sent without your explicit confirmation. No silent SMS.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <span class="feature-icon" aria-hidden="true">✨</span>
-                        <h3>Simple</h3>
-                        <p>One job done well: missed call → rescue → reason → action.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Merged Final Section: Downloads + Footer + Nav -->
-        <section class="final-section">
-            <div class="container">
-                <div class="final-content-wrapper">
-                    <!-- Animated Mascot -->
-                    <img src="https://qoqbdiixztolvtcjdnle.supabase.co/storage/v1/object/public/Storage/calliolove.png" alt="Callio Love" class="final-mascot">
-
-                    <h2>Never call back blindly.</h2>
-
-                    <button class="download-btn" onclick="showComingSoon('Android')">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24c-2.86-1.21-6.08-1.21-8.94 0L5.65 5.67c-.19-.28-.54-.38-.83-.22-.3.16-.42.54-.26.85l1.84 3.18C4.37 10.97 2.89 13.47 2.89 16.3h18.23c-.01-2.83-1.49-5.33-3.52-6.82zM7.4 14.9c-.48 0-.87-.39-.87-.87s.39-.87.87-.87.87.39.87.87-.39.87-.87.87zm9.2 0c-.48 0-.87-.39-.87-.87s.39-.87.87-.87.87.39.87.87-.39.87-.87.87z"/>
-                        </svg>
-                        <span>Get Callio</span>
-                    </button>
-                </div>
-
-                <div class="nav-buttons-container">
-                    <button class="nav-btn" onclick="showPage('faq-page')">FAQ</button>
-                    <button class="nav-btn" onclick="showPage('contact-page')">Contact</button>
-                    <button class="nav-btn" onclick="showPage('privacy-page')">Privacy Policy</button>
-                </div>
-                
-                <div class="footer-content">
-                    <p>&copy; 2026 Callio. All rights reserved. Made with privacy in mind.</p>
-                    <p style="margin-top: 0.5rem; font-size: 0.8rem;">
-                        <a href="#" onclick="showAdmin(); return false;">Admin</a>
-                    </p>
-                </div>
-            </div>
-        </section>
+  <header class="site-nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" onclick="showHome()">
+        <img src="assets/mascot/callio-cheerful.png" alt="" width="34" height="34">
+        Callio
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#how-it-works">How it works</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#guides">Guides</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav-cta" href="#get-callio">Get Callio</a>
+      </nav>
+      <button class="menu-btn" type="button" aria-label="Open menu" onclick="toggleMenu()">☰</button>
     </div>
+    <div class="container mobile-menu" id="mobile-menu">
+      <a href="#how-it-works" onclick="toggleMenu(false)">How it works</a>
+      <a href="#privacy" onclick="toggleMenu(false)">Privacy</a>
+      <a href="#guides" onclick="toggleMenu(false)">Guides</a>
+      <a href="#faq" onclick="toggleMenu(false)">FAQ</a>
+      <a href="#get-callio" onclick="toggleMenu(false)">Get Callio</a>
+    </div>
+  </header>
 
-    <!-- FAQ Page -->
-    <div id="faq-page" class="page faq-page">
-        <div class="content-page-container">
-            <div class="page-header">
-                <img src="https://qoqbdiixztolvtcjdnle.supabase.co/storage/v1/object/public/Storage/callioexcited.png" alt="Callio Excited" class="page-mascot">
-                <h1>Frequently Asked Questions</h1>
-                <p>Find answers to common questions about Callio</p>
+  <div id="home-view" class="page-view active">
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div>
+            <p class="hero-kicker">Callio</p>
+            <h1 id="hero-title">Missed a call? Find out why they called.</h1>
+            <p class="hero-lead">Callio helps you recover the context behind missed calls from unknown numbers, so you don’t have to blindly call back or wonder who was trying to reach you.</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#get-callio">Get Callio</a>
+              <a class="btn btn-secondary" href="#how-it-works">See how it works</a>
             </div>
-            
-            <div class="content-card faq-list">
-                <div class="faq-item" onclick="toggleFAQ(this)">
-                    <div class="faq-question">
-                        What is Callio?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Callio is your missed-call rescue assistant. When an unknown number calls and you miss it, Callio helps you find out why — before you decide whether to call back.
-                    </div>
-                </div>
-                
-                <div class="faq-item" onclick="toggleFAQ(this)">
-                    <div class="faq-question">
-                        Does Callio send messages automatically?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        No. Callio prepares a short rescue message, but you always review and confirm before anything is sent through your phone’s SMS composer.
-                    </div>
-                </div>
-                
-                <div class="faq-item" onclick="toggleFAQ(this)">
-                    <div class="faq-question">
-                        Do you upload my call logs?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        No. Callio is designed to keep call context on your device. We do not build a central database of phone numbers.
-                    </div>
-                </div>
-                
-                <div class="faq-item" onclick="toggleFAQ(this)">
-                    <div class="faq-question">
-                        What permissions does Callio need?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        To detect missed calls and unknown numbers, Callio may request call log, phone state, and contacts access. SMS is sent through the system composer — Callio is not a default SMS app.
-                    </div>
-                </div>
-                
-                <div class="faq-item" onclick="toggleFAQ(this)">
-                    <div class="faq-question">
-                        Is there a paid plan?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        The MVP is free while we learn what people need. Callio Plus may later unlock advanced summarization and smart reminders — without gating the core rescue flow during testing.
-                    </div>
-                </div>
-                
-                <div class="faq-item" onclick="toggleFAQ(this)">
-                    <div class="faq-question">
-                        Can I delete my data?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Yes. You can delete individual calls or wipe all Callio data from Settings at any time.
-                    </div>
-                </div>
-                
-                <div class="faq-item" onclick="toggleFAQ(this)">
-                    <div class="faq-question">
-                        When is Callio available?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Callio is coming to Google Play. Join the waitlist and we’ll email you when it’s ready. Android first; iOS may follow based on demand.
-                    </div>
-                </div>
-            </div>
-
-            <button class="nav-btn back-btn" onclick="showPage('home-page')">Back to Home</button>
+            <p class="hero-note">Android missed-call rescue assistant. Local-first. You confirm every message.</p>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="float-card missed"><strong>Unknown missed call</strong>Who was that — and why?</div>
+            <img class="hero-mascot" src="assets/mascot/callio-cheerful.png" alt="Callio mascot holding a phone" width="300" height="300" fetchpriority="high">
+            <div class="float-card rescue"><strong>Callio Rescue</strong>Find out why they called</div>
+          </div>
         </div>
-    </div>
+      </section>
 
-    <!-- Contact Page -->
-    <div id="contact-page" class="page contact-page">
-        <div class="content-page-container">
-            <div class="page-header">
-                <img src="https://qoqbdiixztolvtcjdnle.supabase.co/storage/v1/object/public/Storage/calliopanic.png" alt="Callio Panic" class="page-mascot">
-                <h1>Get in Touch</h1>
-                <p>Have questions or feedback? We'd love to hear from you!</p>
-            </div>
-            
-            <div class="content-card contact-card">
-                <h3>Need help?</h3>
-                <p>General support, feedback, bugs, and app questions.</p>
-                <a href="mailto:support@trycallio.app" class="contact-btn">support@trycallio.app</a>
-            </div>
-
-            <div class="content-card contact-card" style="margin-top: 1.5rem;">
-                <h3>Privacy &amp; data requests</h3>
-                <p>Privacy questions, personal-data requests, deletion requests, and GDPR-related requests.</p>
-                <a href="mailto:privacy@trycallio.app" class="contact-btn">privacy@trycallio.app</a>
-            </div>
-
-            <button class="nav-btn back-btn" onclick="showPage('home-page')">Back to Home</button>
+      <section class="problem" id="problem">
+        <div class="container">
+          <p class="eyebrow reveal">The problem</p>
+          <h2 class="section-title reveal">You missed the call. Now what?</h2>
+          <p class="section-lead reveal">An unknown missed call can be spam — or something that matters. Without context, you’re stuck guessing whether to call back.</p>
+          <div class="scenario-grid reveal">
+            <article class="scenario">A doctor’s office calls from a number you don’t recognize.</article>
+            <article class="scenario">A delivery driver calls while you’re in a meeting.</article>
+            <article class="scenario">A recruiter calls from an unfamiliar line.</article>
+            <article class="scenario">Your child’s school tries to reach you.</article>
+            <article class="scenario">A repair technician needs to confirm arrival.</article>
+            <article class="scenario">A customer or business partner calls without leaving voicemail.</article>
+          </div>
+          <div class="frustration reveal">
+            <p>You don’t know who called.</p>
+            <p>You don’t know why they called.</p>
+            <p>You don’t want to call an unknown number blindly.</p>
+            <p>And ignoring it could mean missing something important.</p>
+          </div>
         </div>
-    </div>
+      </section>
 
-    <!-- Privacy Policy Page -->
-    <div id="privacy-page" class="page privacy-page">
-        <div class="content-page-container">
-            <div class="page-header">
-                <img src="https://qoqbdiixztolvtcjdnle.supabase.co/storage/v1/object/public/Storage/Callioscared.png" alt="Callio Scared" class="page-mascot">
-                <h1>Privacy Policy</h1>
-                <p>Your privacy is our priority</p>
-            </div>
-            
-            <div class="content-card privacy-card">
-                <p><strong>Last Updated: January 01, 2026</strong></p>
-                
-                <h3>Our Commitment to Your Privacy</h3>
-                <p>At Callio, your privacy is our top priority. Callio is a missed-call rescue assistant. We designed it to keep your call context on your device whenever possible.</p>
-                
-                <h3>Data Collection</h3>
-                <p><strong>Your calls stay yours.</strong> Callio stores rescue context on-device by default. We do not sell call data and we do not build a central caller database.</p>
-                
-                <h3>No Login or Account Required</h3>
-                <p>You don't need to create an account or provide any personal information to use Callio. No email, no phone number, no tracking. Just install and use.</p>
-                
-                <h3>Local Storage</h3>
-                <p>Missed-call records, notes, and rescue messages are stored locally on your device. You can delete individual calls or wipe all Callio data anytime from Settings.</p>
-                
-                <h3>No Third-Party Sharing</h3>
-                <p>We never share your data with:</p>
-                <ul>
-                    <li>Advertisers</li>
-                    <li>Analytics companies</li>
-                    <li>Data brokers</li>
-                    <li>Any other third parties</li>
-                </ul>
-                <p>Your call data is not for sale. You control every rescue message.</p>
-                
-                <h3>Monetization</h3>
-                <p>The Callio Rescue MVP is free while we learn what people need. If we introduce optional ads or paid upgrades later, we will not sell your call data, and you will still control every rescue message.</p>
-                
-                <h3>Permissions</h3>
-                <p>Callio may request certain Android permissions to function:</p>
-                <ul>
-                    <li><strong>Phone / call logs / phone state:</strong> To detect missed calls from unknown numbers</li>
-                    <li><strong>Contacts:</strong> To distinguish known contacts from unknown callers (data stays on your device)</li>
-                </ul>
-                <p>Rescue SMS is sent through your phone’s system composer. Callio is not a default SMS app. Permissions are used for app functionality; call context is kept on-device by default.</p>
-                
-                <h3>Cookies & Tracking</h3>
-                <p>We do not use cookies, analytics, or any tracking technologies. We have no idea how you use the app, and that's by design.</p>
-                
-                <h3>Children's Privacy</h3>
-                <p>Callio does not knowingly collect information from children under 13. The app is designed for general audiences.</p>
-                
-                <h3>Changes to This Policy</h3>
-                <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last Updated" date.</p>
-                
-                <h3>Contact Us</h3>
-                <p>If you have any questions about this Privacy Policy, please contact us at:</p>
-                <p><strong>Email:</strong> <a href="mailto:privacy@trycallio.app">privacy@trycallio.app</a></p>
-            </div>
-
-            <button class="nav-btn back-btn" onclick="showPage('home-page')">Back to Home</button>
+      <section class="solution" id="how-it-works">
+        <div class="container">
+          <p class="eyebrow reveal">The Callio solution</p>
+          <h2 class="section-title reveal">Callio turns a missed call into an answer.</h2>
+          <p class="section-lead reveal">Rescue is a guided flow you control. Callio prepares the next step — you decide what happens.</p>
+          <div class="steps">
+            <article class="step reveal"><div class="step-num">01</div><h3>You miss a call</h3><p>Callio notices an unknown missed call on your Android phone.</p><img src="assets/mascot/callio-scared.png" alt="" width="70" height="70" loading="lazy"></article>
+            <article class="step reveal"><div class="step-num">02</div><h3>Callio offers Rescue</h3><p>Instead of blindly calling back, Callio gives you a simple way to ask why they called.</p><img src="assets/mascot/callio-neutral.png" alt="" width="70" height="70" loading="lazy"></article>
+            <article class="step reveal"><div class="step-num">03</div><h3>You decide what to send</h3><p>Callio prepares a message. You review it and choose whether to send it via your phone’s SMS composer.</p><img src="assets/mascot/callio-excited.png" alt="" width="70" height="70" loading="lazy"></article>
+            <article class="step reveal"><div class="step-num">04</div><h3>Find out what they wanted</h3><p>When you get their response, you can paste or provide the reply so Callio can help you understand it and decide what to do next.</p><img src="assets/mascot/callio-love.png" alt="" width="70" height="70" loading="lazy"></article>
+          </div>
         </div>
-    </div>
+      </section>
 
-    <!-- Admin Page (Hidden) -->
-    <div id="admin-page" class="page admin-page">
-        <div class="content-page-container">
-            <div class="page-header">
-                <h1>Admin Panel</h1>
-            </div>
-            
-            <div class="admin-login" id="admin-login" style="max-width: 400px; margin: 0 auto; text-align: center;">
-                <p style="margin-bottom: 1rem; color: rgba(255,255,255,0.9);">Enter password to access waitlist</p>
-                <input type="password" id="admin-password" placeholder="Admin Password" style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: none; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                <button onclick="adminLogin()" style="width: 100%; padding: 1rem; background: white; color: var(--primary-purple); border: none; border-radius: 10px; font-weight: bold; cursor: pointer;">Login</button>
-            </div>
-            
-            <div class="admin-content" id="admin-content" style="display: none;">
-                <div class="email-list" style="max-width: 800px; margin: 2rem auto; background: white; padding: 2rem; border-radius: 20px;">
-                    <h3 style="margin-bottom: 1rem;">Waitlist Emails (<span id="admin-count">0</span>)</h3>
-                    <div id="email-list-container"></div>
-                </div>
-                <div style="text-align: center;">
-                    <button class="export-btn" onclick="exportEmails()" style="padding: 1rem 2rem; background: var(--primary-purple); color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; margin: 1rem;">Export to CSV</button>
-                    <button class="export-btn" onclick="adminLogout()" style="padding: 1rem 2rem; background: #ef4444; color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; margin: 1rem;">Logout</button>
-                </div>
-                <button class="nav-btn back-btn" onclick="showPage('home-page')">Back to Home</button>
-            </div>
+      <section class="compare" id="compare">
+        <div class="container">
+          <p class="eyebrow reveal">Before / after</p>
+          <h2 class="section-title reveal">Same missed call. Different outcome.</h2>
+          <div class="compare-grid">
+            <article class="compare-card without reveal"><h3>Without Callio</h3><ul><li>Unknown missed call.</li><li>Who was that?</li><li>Should I call back?</li><li>Is it spam?</li><li>What if it’s important?</li></ul></article>
+            <article class="compare-card with reveal"><h3>With Callio</h3><ul><li>Unknown missed call.</li><li>Callio noticed it.</li><li>Find out why they called.</li><li>Review the message.</li><li>Get the answer — then decide.</li></ul></article>
+          </div>
         </div>
-    </div>
+      </section>
 
-    <!-- Join waitlist Modal -->
-    <div id="coming-soon-modal" class="modal">
-        <div class="modal-content">
-            <h3>Join waitlist!</h3>
-            <p id="modal-text">The iOS app will be available soon. Join our waitlist to be notified when we launch!</p>
-            <button class="modal-close" onclick="closeModal()">Got it!</button>
+      <section class="privacy" id="privacy">
+        <div class="container privacy-grid">
+          <div>
+            <p class="eyebrow reveal">Privacy</p>
+            <h2 class="section-title reveal">Your calls stay yours.</h2>
+            <p class="section-lead reveal">Callio is designed around local-first call data. Authentication is separate from your private call history.</p>
+            <div class="privacy-points">
+              <article class="reveal"><h3>Local-first call data</h3><p>Call history and Rescue context are designed to stay on your device.</p></article>
+              <article class="reveal"><h3>Sign-in ≠ uploading calls</h3><p>Google Sign-In is used for account authentication. Signing in does not mean Callio uploads your call log just to create an account.</p></article>
+              <article class="reveal"><h3>You control SMS</h3><p>Rescue messages go through your system SMS composer after you review them. Callio does not silently send SMS for you.</p></article>
+              <article class="reveal"><h3>No SMS inbox reading</h3><p>Callio does not read your SMS inbox. If you want help interpreting a reply, you provide or paste that reply yourself.</p></article>
+            </div>
+            <p class="privacy-caveat reveal">We avoid absolute claims like “100% private” or “zero data ever leaves your phone.” Supabase is used for authentication and identity — not as a dump of your call history.</p>
+          </div>
+          <div class="privacy-visual reveal"><img src="assets/mascot/callio-sub.png" alt="Callio mascot looking thoughtful" width="250" height="250" loading="lazy"></div>
         </div>
-    </div>
+      </section>
 
-    <script>
-        // Initialize
-        const ADMIN_PASSWORD = 'callio2026'; // Change this to your desired password
-        
-        const DUPLICATE_EMAIL_MESSAGES = [
-            "Looks like you're already on the list. We'll be in touch.",
-            "This email is already on the waitlist.",
-            "You're already signed up — we'll email you when Callio is ready.",
-            "We've already got this email. No need to join again.",
-            "This email is already registered.",
-            "You're already signed up with this email."
-        ];
-        
-        // Load waitlist from localStorage
-        let waitlist = JSON.parse(localStorage.getItem('callioWaitlist') || '[]');
-        updateWaitlistCount();
+      <section class="diff" id="different">
+        <div class="container">
+          <p class="eyebrow reveal">Why Callio is different</p>
+          <h2 class="section-title reveal">Not another caller-ID app.</h2>
+          <p class="section-lead reveal">Callio isn’t primarily trying to tell you “this number belongs to John.” <strong>Callio helps you recover the reason behind a missed call.</strong></p>
+          <div class="diff-table">
+            <article class="diff-col reveal"><h3>Caller ID</h3><p>Who is calling?</p></article>
+            <article class="diff-col reveal"><h3>Spam blocking</h3><p>Should I answer?</p></article>
+            <article class="diff-col callio reveal"><h3>Callio Rescue</h3><p>Why did they call?</p></article>
+          </div>
+        </div>
+      </section>
 
-        // Page navigation
-        function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            document.getElementById(pageId).classList.add('active');
-            window.scrollTo(0, 0);
-        }
+      <section class="guides" id="guides">
+        <div class="container">
+          <p class="eyebrow reveal">Guides</p>
+          <h2 class="section-title reveal">Practical help for unknown missed calls</h2>
+          <p class="section-lead reveal">Useful reading for people searching what to do after a missed call from an unknown number — and where Callio fits.</p>
 
-        // Join waitlist
-        function joinWaitlist(event) {
-            event.preventDefault();
-            const emailInput = document.getElementById('email-input');
-            const email = emailInput.value.trim().toLowerCase();
-            const successMsg = document.getElementById('success-message');
-            const errorMsg = document.getElementById('error-message');
-            const errorText = document.getElementById('error-text');
-            
-            // Hide any existing messages
-            successMsg.classList.remove('show');
-            errorMsg.classList.remove('show');
-            
-            // Check if email already exists (case-insensitive)
-            const emailExists = waitlist.some(item => item.email.toLowerCase() === email);
-            
-            if (email && !emailExists) {
-                // Add new email with timestamp
-                const newEntry = {
-                    email: email,
-                    timestamp: new Date().toISOString(),
-                    date: new Date().toLocaleDateString()
-                };
-                
-                waitlist.push(newEntry);
-                localStorage.setItem('callioWaitlist', JSON.stringify(waitlist));
-                emailInput.value = '';
-                
-                // Show success message
-                successMsg.classList.add('show');
-                setTimeout(() => {
-                    successMsg.classList.remove('show');
-                }, 6000);
-                
-                updateWaitlistCount();
-            } else if (emailExists) {
-                const randomMessage = DUPLICATE_EMAIL_MESSAGES[Math.floor(Math.random() * DUPLICATE_EMAIL_MESSAGES.length)];
-                errorText.innerHTML = randomMessage;
-                errorMsg.classList.add('show');
-                setTimeout(() => {
-                    errorMsg.classList.remove('show');
-                }, 6000);
-            }
-        }
+          <article class="guide reveal" id="what-to-do-unknown-missed-call">
+            <h3>What to do when you miss a call from an unknown number</h3>
+            <p>First, pause. Unknown missed calls are common on Android, and not every one deserves an immediate call-back. Check whether the caller left voicemail. If the number looks familiar in context (delivery window, appointment day), that helps. Searching the number can sometimes provide clues — and sometimes it only adds noise.</p>
+            <p>Calling back immediately can work, but it can also connect you to spam, scams, or an awkward conversation with no context. Messaging first — when appropriate — can be a calmer way to ask why they called. Callio is built for that moment: it helps you start a careful “find out why” Rescue flow instead of guessing.</p>
+          </article>
+          <article class="guide reveal" id="should-you-call-back">
+            <h3>Should you call back an unknown number?</h3>
+            <p>Sometimes yes — especially if you were expecting a doctor, school, delivery, or interview call. Sometimes no — especially if the pattern looks like robocalls or callback scams.</p>
+            <p>A practical middle path: gather context before you dial. If the caller can briefly explain why they called, you can decide whether a conversation is worth it. Callio supports that decision without pretending every unknown call is safe or every unknown call is spam.</p>
+          </article>
+          <article class="guide reveal" id="how-to-find-out-who-called">
+            <h3>How to find out who called you</h3>
+            <p>Common approaches people try after an unknown missed call:</p>
+            <ul>
+              <li>Caller ID labels (when available)</li>
+              <li>Voicemail</li>
+              <li>Searching the number online</li>
+              <li>Returning the call</li>
+              <li>Messaging the caller</li>
+            </ul>
+            <p>Callio’s approach focuses less on naming the caller from a giant database and more on recovering the reason for the call through a user-confirmed message and the reply you choose to share with Callio.</p>
+          </article>
+          <article class="guide reveal" id="how-callio-rescue-works">
+            <h3>How Callio Rescue works</h3>
+            <p>1) Callio detects an unknown missed call.<br>2) You open Rescue and choose to find out why they called.<br>3) Callio prepares a message; you review it and send it yourself through the system SMS composer.<br>4) When the caller replies, you provide or paste the reply.<br>5) Callio helps interpret the response so you can decide what to do next.</p>
+            <p>Nothing in that flow requires Callio to auto-dial the caller or silently send SMS in the background.</p>
+          </article>
+          <article class="guide reveal" id="why-people-miss-important-calls">
+            <h3>Why people miss important calls</h3>
+            <p>Busy meetings, Do Not Disturb, weak signal, childcare chaos, driving, and notification overload — important callers don’t always get through on the first try, and they don’t always leave voicemail. That’s why missed-call management matters: the cost of a blind call-back and the cost of ignoring a real need can both be high. Callio is meant to reduce that uncertainty.</p>
+          </article>
+          <article class="guide reveal" id="callio-vs-caller-id">
+            <h3>Callio vs caller ID</h3>
+            <p>Caller ID answers “who might this be?” Callio Rescue answers “why did they call?” Those questions overlap, but they’re not the same product job. Identifying a name can still leave you unsure what to do. Recovering the reason helps you choose whether to call back, wait, or ignore.</p>
+          </article>
+        </div>
+      </section>
 
-        // Update waitlist count
-        function updateWaitlistCount() {
-            const adminCountEl = document.getElementById('admin-count');
-            if (adminCountEl) {
-                adminCountEl.textContent = waitlist.length;
-            }
-        }
+      <section class="faq" id="faq">
+        <div class="container">
+          <p class="eyebrow reveal">FAQ</p>
+          <h2 class="section-title reveal">Questions people ask before installing</h2>
+          <div class="faq-item reveal"><button class="faq-q" type="button" onclick="toggleFaq(this)" aria-expanded="false">What is Callio? <span>+</span></button><div class="faq-a">Callio is an Android missed-call rescue assistant. When you miss a call from an unknown number, Callio helps you find out why they called — without blindly calling back.</div></div>
+          <div class="faq-item reveal"><button class="faq-q" type="button" onclick="toggleFaq(this)" aria-expanded="false">What does Callio do when I miss a call? <span>+</span></button><div class="faq-a">For unknown missed calls, Callio can surface a Rescue option so you can ask why they called, review a prepared message, and decide what to do after you get a reply.</div></div>
+          <div class="faq-item reveal"><button class="faq-q" type="button" onclick="toggleFaq(this)" aria-expanded="false">Can Callio tell me who called? <span>+</span></button><div class="faq-a">Callio is not a caller-ID database product. It focuses on helping you recover the reason behind the call.</div></div>
+          <div class="faq-item reveal"><button class="faq-q" type="button" onclick="toggleFaq(this)" aria-expanded="false">Does Callio automatically call people back? <span>+</span></button><div class="faq-a">No. Callio does not automatically call people back.</div></div>
+          <div class="faq-item reveal"><button class="faq-q" type="button" onclick="toggleFaq(this)" aria-expanded="false">Does Callio automatically send SMS messages? <span>+</span></button><div class="faq-a">For the current MVP, no. Callio prepares a message and you review/confirm it through the system SMS composer.</div></div>
+          <div class="faq-item reveal"><button class="faq-q" type="button" onclick="toggleFaq(this)" aria-expanded="false">Can I choose whether to send the message? <span>+</span></button><div class="faq-a">Yes. You review the message and choose whether to send it.</div></div>
+          <div class="faq-item reveal"><button class="faq-q" type="button" onclick="toggleFaq(this)" aria-expanded="false">Does Callio read my SMS inbox? <span>+</span></button><div class="faq-a">No. Callio does not read your SMS inbox.</div></div>
+          <div class="faq-item reveal"><button class="faq-q" type="button" onclick="toggleFaq(this)" aria-expanded="false">Does Callio upload my call history? <span>+</span></button><div class="faq-a">Callio is designed so call history and Rescue data remain local on your device. Google Sign-In / Supabase authentication is for account identity — not for uploading your private call log as the product’s default behavior.</div></div>
+          <div class="faq-item reveal"><button class="faq-q" type="button" onclick="toggleFaq(this)" aria-expanded="false">Does Callio work on iPhone? <span>+</span></button><div class="faq-a">Callio is available for Android. iPhone support is not currently offered.</div></div>
+          <div class="faq-item reveal"><button class="faq-q" type="button" onclick="toggleFaq(this)" aria-expanded="false">Is Callio free? <span>+</span></button><div class="faq-a">Callio is currently in an Android MVP / early access stage. Pricing may evolve; the waitlist will get launch details as distribution is finalized.</div></div>
+        </div>
+      </section>
 
-        // Toggle FAQ
-        function toggleFAQ(element) {
-            element.classList.toggle('active');
-        }
+      <section class="trust" id="trust">
+        <div class="container">
+          <p class="eyebrow reveal">Trust</p>
+          <h2 class="section-title reveal">Built to be careful with your attention and your data</h2>
+          <div class="trust-grid">
+            <article class="trust-card reveal"><h3>Android app</h3><p>Callio is built for Android missed-call management and Rescue workflows.</p></article>
+            <article class="trust-card reveal"><h3>Local-first architecture</h3><p>Call context is designed to stay on-device. Sensitive call data is not the product’s cloud feature.</p></article>
+            <article class="trust-card reveal"><h3>User-controlled SMS</h3><p>No automatic SMS inbox reading. No silent sending. You confirm the composer flow.</p></article>
+            <article class="trust-card reveal"><h3>Google authentication</h3><p>Optional account sign-in uses Google via Supabase Auth for identity — separate from local Rescue data.</p></article>
+            <article class="trust-card reveal"><h3>Support</h3><p><a href="mailto:support@trycallio.app">support@trycallio.app</a></p></article>
+            <article class="trust-card reveal"><h3>Privacy contact</h3><p><a href="mailto:privacy@trycallio.app">privacy@trycallio.app</a></p></article>
+          </div>
+        </div>
+      </section>
 
-        // Show coming soon modal
-        function showComingSoon(platform) {
-            const modal = document.getElementById('coming-soon-modal');
-            const modalText = document.getElementById('modal-text');
-            modalText.textContent = `The ${platform} app will be available soon. Join our waitlist to be notified when we launch!`;
-            modal.classList.add('active');
-        }
+      <section class="final-cta" id="get-callio">
+        <div class="container">
+          <img src="assets/mascot/callio-excited.png" alt="" width="130" height="130" loading="lazy">
+          <h2>Get Callio</h2>
+          <p>Join the Android waitlist. We’ll email you when Callio is ready to install.</p>
+          <form class="waitlist" onsubmit="joinWaitlist(event)">
+            <input id="email-input" type="email" name="email" placeholder="Enter your email" required autocomplete="email">
+            <button class="btn btn-primary" type="submit">Get Callio</button>
+          </form>
+          <div class="toast" id="success-message">You're on the list. We'll email you when Callio is ready on Android.</div>
+          <div class="toast error" id="error-message"><span id="error-text">Something went wrong.</span></div>
+          <p class="hero-note">Play Store link will appear here once the public listing is finalized.</p>
+        </div>
+      </section>
+    </main>
 
-        // Close modal
-        function closeModal() {
-            document.getElementById('coming-soon-modal').classList.remove('active');
-        }
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div><h3>Callio</h3><p>Missed a call? Find out why they called.</p></div>
+        <div><h3>Product</h3><p><a href="#how-it-works">How it works</a></p><p><a href="#privacy">Privacy</a></p><p><a href="#faq">FAQ</a></p></div>
+        <div><h3>Contact</h3><p><a href="mailto:support@trycallio.app">support@trycallio.app</a></p><p><a href="mailto:privacy@trycallio.app">privacy@trycallio.app</a></p><p><a href="#" onclick="showPage('privacy-page'); return false;">Privacy Policy</a></p><p><a href="#" onclick="showPage('contact-page'); return false;">Contact</a></p></div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© 2026 Callio. All rights reserved.</span>
+        <a class="admin-link" href="#" onclick="showPage('admin-page'); return false;">Admin</a>
+      </div>
+    </footer>
+  </div>
 
-        // Show admin section
-        function showAdmin() {
-            showPage('admin-page');
-        }
+  <div id="contact-page" class="page-view">
+    <div class="content-page"><div class="container content-card">
+      <h1>Contact</h1>
+      <p>Questions, feedback, and Android MVP issues:</p>
+      <p><a href="mailto:support@trycallio.app">support@trycallio.app</a></p>
+      <p>Privacy and data requests:</p>
+      <p><a href="mailto:privacy@trycallio.app">privacy@trycallio.app</a></p>
+      <button class="btn btn-ink back-home" type="button" onclick="showHome()">Back to Home</button>
+    </div></div>
+  </div>
 
-        // Admin login
-        function adminLogin() {
-            const password = document.getElementById('admin-password').value;
-            if (password === ADMIN_PASSWORD) {
-                document.getElementById('admin-login').style.display = 'none';
-                document.getElementById('admin-content').style.display = 'block';
-                displayEmails();
-            } else {
-                alert('Incorrect password!');
-            }
-        }
+  <div id="privacy-page" class="page-view">
+    <div class="content-page"><div class="container content-card">
+      <h1>Privacy Policy</h1>
+      <p><strong>Last updated: August 23, 2026</strong></p>
+      <h3>Overview</h3>
+      <p>Callio is a missed-call rescue assistant for Android. We design the product so call history and Rescue context remain local-first on your device whenever possible.</p>
+      <h3>Account authentication</h3>
+      <p>Callio may use Google Sign-In through Supabase Auth to authenticate your account. Authentication identity is separate from your private call history. Signing in does not mean Callio uploads your call log as a default cloud feature.</p>
+      <h3>Call data &amp; Rescue</h3>
+      <p>Missed-call records, notes, and Rescue conversation context are designed to stay on your device. We do not sell call data and we do not operate Callio as a central caller-ID database.</p>
+      <h3>SMS</h3>
+      <p>Rescue SMS is user-confirmed through the system SMS composer. Callio does not read your SMS inbox and does not silently send messages in the current MVP.</p>
+      <h3>Permissions</h3>
+      <p>To detect unknown missed calls, Callio may request Android permissions such as call log / phone state and contacts (to distinguish known contacts). Permissions are used for product functionality.</p>
+      <h3>Contact</h3>
+      <p>Privacy questions: <a href="mailto:privacy@trycallio.app">privacy@trycallio.app</a></p>
+      <button class="btn btn-ink back-home" type="button" onclick="showHome()">Back to Home</button>
+    </div></div>
+  </div>
 
-        // Admin logout
-        function adminLogout() {
-            document.getElementById('admin-login').style.display = 'block';
-            document.getElementById('admin-content').style.display = 'none';
-            document.getElementById('admin-password').value = '';
-        }
+  <div id="admin-page" class="page-view">
+    <div class="content-page"><div class="container content-card">
+      <h1>Admin</h1>
+      <div id="admin-login">
+        <p>Enter password to view the local waitlist stored in this browser.</p>
+        <input id="admin-password" type="password" placeholder="Admin password" style="width:100%;padding:.9rem;border-radius:12px;border:1px solid #ddd;margin:.75rem 0;">
+        <button class="btn btn-ink" type="button" onclick="adminLogin()">Login</button>
+      </div>
+      <div id="admin-content" style="display:none;">
+        <h3>Waitlist emails (<span id="admin-count">0</span>)</h3>
+        <div id="email-list-container"></div>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1rem;">
+          <button class="btn btn-ink" type="button" onclick="exportEmails()">Export CSV</button>
+          <button class="btn btn-ghost" type="button" onclick="adminLogout()">Logout</button>
+        </div>
+      </div>
+      <button class="btn btn-ghost back-home" type="button" onclick="showHome()">Back to Home</button>
+    </div></div>
+  </div>
 
-        // Display emails
-        function displayEmails() {
-            const container = document.getElementById('email-list-container');
-            container.innerHTML = '';
-            
-            if (waitlist.length === 0) {
-                container.innerHTML = '<p style="text-align: center; color: #999; padding: 2rem;">No emails yet</p>';
-                return;
-            }
-            
-            // Sort by newest first
-            const sortedWaitlist = [...waitlist].reverse();
-            
-            sortedWaitlist.forEach((entry, reverseIndex) => {
-                const index = waitlist.length - 1 - reverseIndex;
-                const item = document.createElement('div');
-                item.className = 'email-item';
-                item.style.padding = '1rem';
-                item.style.borderBottom = '1px solid #e5e7eb';
-                item.style.display = 'flex';
-                item.style.justifyContent = 'space-between';
-                item.style.alignItems = 'center';
-                item.innerHTML = `
-                    <div>
-                        <span>${entry.email || entry}</span>
-                        <span class="email-date" style="font-size: 0.85rem; color: #999; margin-left: 1rem;">${entry.date || 'Unknown date'}</span>
-                    </div>
-                    <button onclick="removeEmail(${index})" style="background: #ef4444; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">Remove</button>
-                `;
-                container.appendChild(item);
-            });
-        }
+  <script>
+    const ADMIN_PASSWORD = 'callio-admin';
+    let waitlist = JSON.parse(localStorage.getItem('callioWaitlist') || '[]');
 
-        // Remove email
-        function removeEmail(index) {
-            if (confirm('Remove this email from the waitlist?')) {
-                waitlist.splice(index, 1);
-                localStorage.setItem('callioWaitlist', JSON.stringify(waitlist));
-                displayEmails();
-                updateWaitlistCount();
-            }
-        }
-
-        // Export emails to CSV
-        function exportEmails() {
-            if (waitlist.length === 0) {
-                alert('No emails to export!');
-                return;
-            }
-            
-            // Create CSV with headers
-            let csv = 'Email,Date,Timestamp\n';
-            waitlist.forEach(entry => {
-                const email = entry.email || entry;
-                const date = entry.date || 'Unknown';
-                const timestamp = entry.timestamp || '';
-                csv += `${email},${date},${timestamp}\n`;
-            });
-            
-            const blob = new Blob([csv], { type: 'text/csv' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'callio-waitlist-' + new Date().toISOString().split('T')[0] + '.csv';
-            a.click();
-            window.URL.revokeObjectURL(url);
-        }
-
-        // Close modal when clicking outside
-        document.getElementById('coming-soon-modal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
+    function toggleMenu(force) {
+      const menu = document.getElementById('mobile-menu');
+      const open = typeof force === 'boolean' ? force : !menu.classList.contains('open');
+      menu.classList.toggle('open', open);
+    }
+    function showHome() {
+      document.querySelectorAll('.page-view').forEach((el) => el.classList.remove('active'));
+      document.getElementById('home-view').classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function showPage(id) {
+      document.querySelectorAll('.page-view').forEach((el) => el.classList.remove('active'));
+      const page = document.getElementById(id);
+      if (page) page.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      toggleMenu(false);
+    }
+    function toggleFaq(button) {
+      const item = button.parentElement;
+      const open = !item.classList.contains('open');
+      item.classList.toggle('open', open);
+      button.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    function joinWaitlist(event) {
+      event.preventDefault();
+      const emailInput = document.getElementById('email-input');
+      const successMsg = document.getElementById('success-message');
+      const errorMsg = document.getElementById('error-message');
+      const errorText = document.getElementById('error-text');
+      const email = (emailInput.value || '').trim().toLowerCase();
+      successMsg.classList.remove('show');
+      errorMsg.classList.remove('show');
+      if (!email || !email.includes('@')) {
+        errorText.textContent = 'Please enter a valid email.';
+        errorMsg.classList.add('show');
+        return;
+      }
+      if (waitlist.some((entry) => (entry.email || entry) === email)) {
+        errorText.textContent = 'That email is already on the waitlist.';
+        errorMsg.classList.add('show');
+        return;
+      }
+      waitlist.push({ email, date: new Date().toISOString() });
+      localStorage.setItem('callioWaitlist', JSON.stringify(waitlist));
+      emailInput.value = '';
+      successMsg.classList.add('show');
+      updateWaitlistCount();
+    }
+    function updateWaitlistCount() {
+      const el = document.getElementById('admin-count');
+      if (el) el.textContent = String(waitlist.length);
+    }
+    function adminLogin() {
+      if (document.getElementById('admin-password').value !== ADMIN_PASSWORD) {
+        alert('Incorrect password');
+        return;
+      }
+      document.getElementById('admin-login').style.display = 'none';
+      document.getElementById('admin-content').style.display = 'block';
+      displayEmails();
+    }
+    function adminLogout() {
+      document.getElementById('admin-login').style.display = 'block';
+      document.getElementById('admin-content').style.display = 'none';
+      document.getElementById('admin-password').value = '';
+    }
+    function displayEmails() {
+      const container = document.getElementById('email-list-container');
+      updateWaitlistCount();
+      if (!waitlist.length) {
+        container.innerHTML = '<p>No emails yet.</p>';
+        return;
+      }
+      container.innerHTML = [...waitlist].reverse().map((entry, reverseIndex) => {
+        const index = waitlist.length - 1 - reverseIndex;
+        const email = entry.email || entry;
+        const date = entry.date || '';
+        return `<div style="display:flex;justify-content:space-between;gap:1rem;padding:.65rem 0;border-bottom:1px solid #eee;"><div><strong>${email}</strong><div style="font-size:.85rem;color:#888;">${date}</div></div><button class="btn btn-ghost" type="button" onclick="removeEmail(${index})">Remove</button></div>`;
+      }).join('');
+    }
+    function removeEmail(index) {
+      waitlist.splice(index, 1);
+      localStorage.setItem('callioWaitlist', JSON.stringify(waitlist));
+      displayEmails();
+    }
+    function exportEmails() {
+      if (!waitlist.length) { alert('No emails to export'); return; }
+      const rows = ['email,date', ...waitlist.map((e) => `${e.email || e},${e.date || ''}`)];
+      const blob = new Blob([rows.join('\n')], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'callio-waitlist.csv'; a.click();
+      URL.revokeObjectURL(url);
+    }
+    function initReveal() {
+      const nodes = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) { nodes.forEach((n) => n.classList.add('in')); return; }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
         });
-    </script>
+      }, { threshold: 0.12 });
+      nodes.forEach((n) => io.observe(n));
+    }
+    document.addEventListener('DOMContentLoaded', () => { updateWaitlistCount(); initReveal(); });
+  </script>
 </body>
 </html>

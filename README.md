@@ -1,61 +1,56 @@
 # Callio Landing Page
 
-Public landing site for **Callio** (missed-call rescue assistant), hosted on GitHub Pages.
+Public landing site for **Callio** — your missed-call rescue assistant.
 
 **Canonical domain:** [https://trycallio.app/](https://trycallio.app/)
 
-## GitHub Pages
+## Positioning
 
-Deployment uses the built-in GitHub Pages publisher (legacy / branch deploy):
+> Missed a call? Find out why they called.
+
+Callio helps people recover the context behind missed calls from unknown numbers — without blindly calling back.
+
+## GitHub Pages
 
 - Source: `main` branch
 - Folder: `/` (repository root)
-- Custom domain file: `CNAME` → `trycallio.app`
+- Custom domain: `CNAME` → `trycallio.app`
 
-There is no GitHub Actions workflow; pushing to `main` publishes the static files at the repo root.
+### DNS (apex)
 
-### Custom domain DNS (external)
-
-After the domain is provisioned at your registrar, GitHub Pages expects:
-
-**Apex (`trycallio.app`)** — A records to GitHub Pages:
+A records to GitHub Pages:
 
 - `185.199.108.153`
 - `185.199.109.153`
 - `185.199.110.153`
 - `185.199.111.153`
 
-Optional IPv6 AAAA records:
+Optional www CNAME → `semprog25.github.io`
 
-- `2606:50c0:8000::153`
-- `2606:50c0:8001::153`
-- `2606:50c0:8002::153`
-- `2606:50c0:8003::153`
+Enable **Enforce HTTPS** after the certificate is ready.
 
-**`www.trycallio.app` (recommended)** — CNAME to:
+## Local preview
 
-- `semprog25.github.io`
+```bash
+cd Callio_landing
+python3 -m http.server 8765
+# open http://127.0.0.1:8765/
+```
 
-Then in the repository: Settings → Pages → Custom domain = `trycallio.app`, verify, and enable **Enforce HTTPS** once the certificate is ready.
+## Files
 
-Do not point the apex CNAME file at anything other than `trycallio.app` (canonical host).
+- `index.html` — marketing site (home, guides, FAQ, privacy, contact, waitlist admin)
+- `assets/mascot/` — transparent Callio mascot assets
+- `CNAME` — GitHub Pages custom domain
+- `robots.txt` / `sitemap.xml` / `site.webmanifest` — SEO + PWA metadata
 
 ## Contact
 
 - Support: [support@trycallio.app](mailto:support@trycallio.app)
-- Privacy / data requests: [privacy@trycallio.app](mailto:privacy@trycallio.app)
+- Privacy: [privacy@trycallio.app](mailto:privacy@trycallio.app)
 
-## Email waitlist
+## Waitlist
 
-- Emails are stored in browser `localStorage` (client-side only)
-- Admin link is in the footer (subtle)
-- Default admin password is in `index.html` — change before relying on it in production
-
-## Files
-
-- `index.html` — landing SPA (home, FAQ, contact, privacy, admin)
-- `CNAME` — GitHub Pages custom domain
-- `robots.txt` / `sitemap.xml` — SEO
-- `README.md` — this file
+Emails are stored in browser `localStorage` (client-side only). Admin is linked subtly in the footer.
 
 © 2026 Callio. All rights reserved.
