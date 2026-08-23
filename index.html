@@ -3,9 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Callio - Stay Anonymous on Every Call | Waitlist</title>
-    <meta name="description" content="Join the Callio waitlist! Protect your privacy with randomized caller names. Coming soon to Google Play Store.">
-    <!-- Import a nice font for the logo text if needed, and general body -->
+    <title>Callio — Missed a call? Find out why they called.</title>
+    <meta name="description" content="Callio is your missed-call rescue assistant. Missed a call? Find out why they called — without calling back blindly. Private. On-device. You control every message.">
+    <link rel="canonical" href="https://trycallio.app/" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Callio" />
+    <meta property="og:title" content="Callio — Missed a call? Find out why they called." />
+    <meta property="og:description" content="Callio is your missed-call rescue assistant. Recover the context behind missed calls from unknown numbers — without calling back blindly." />
+    <meta property="og:url" content="https://trycallio.app/" />
+    <meta property="og:image" content="https://qoqbdiixztolvtcjdnle.supabase.co/storage/v1/object/public/Storage/Callio.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Callio — Missed a call? Find out why they called." />
+    <meta name="twitter:description" content="Callio is your missed-call rescue assistant. Private. On-device. You control every message." />
+    <meta name="twitter:image" content="https://qoqbdiixztolvtcjdnle.supabase.co/storage/v1/object/public/Storage/Callio.png" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Callio",
+      "alternateName": "Callio Rescue",
+      "url": "https://trycallio.app/",
+      "description": "Callio is your missed-call rescue assistant. Missed a call? Find out why they called.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Callio",
+        "url": "https://trycallio.app/",
+        "email": "support@trycallio.app",
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "support@trycallio.app"
+          },
+          {
+            "@type": "ContactPoint",
+            "contactType": "privacy inquiries",
+            "email": "privacy@trycallio.app"
+          }
+        ]
+      }
+    }
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -145,9 +184,18 @@
             color: white;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 2rem;
+            margin-bottom: 0.5rem;
             text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
             animation: fadeInUp 0.8s ease-out;
+        }
+
+        .brand-tagline {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 1.75rem;
+            font-weight: 400;
+            animation: fadeInUp 0.8s ease-out 0.1s backwards;
         }
 
         .brand-logo {
@@ -669,7 +717,7 @@
             height: 1.8rem;
         }
 
-        /* Coming Soon Modal */
+        /* Join waitlist Modal */
         .modal {
             display: none;
             position: fixed;
@@ -755,13 +803,14 @@
             <div class="container hero-content">
                 <img src="https://qoqbdiixztolvtcjdnle.supabase.co/storage/v1/object/public/Storage/Callio.png" alt="Callio Logo" class="hero-logo">
                 <img src="https://qoqbdiixztolvtcjdnle.supabase.co/storage/v1/object/public/Storage/Calli0logo.png" alt="Callio" class="brand-logo">
+                <p class="brand-tagline">Your missed-call rescue assistant.</p>
                 
-                <h1>Stay Anonymous on Every Call</h1>
-                <p>Callio protects your privacy by displaying random names in call logs instead of real caller information.</p>
+                <h1>Missed a call?<br>Find out why they called.</h1>
+                <p>Callio helps you recover the context behind missed calls from unknown numbers — without blindly calling back.</p>
                 
                 <form class="waitlist-form" onsubmit="joinWaitlist(event)">
                     <input type="email" id="email-input" placeholder="Enter your email" required>
-                    <button type="submit">Join Waitlist</button>
+                    <button type="submit">Get Callio</button>
                 </form>
                 
                 <!-- Success Message -->
@@ -774,7 +823,7 @@
                             <path d="M10 14h4"/>
                         </svg>
                     </span>
-                    <strong>Boo-yeah!</strong> You're on the list! We'll haunt your inbox when Callio launches.
+                    <strong>You're in!</strong> We'll email you when Callio is ready on Google Play.
                 </div>
                 
                 <!-- Error Message for Duplicate -->
@@ -795,77 +844,43 @@
         <!-- Features Section -->
         <section class="features-section">
             <div class="container">
-                <h2 class="section-title">Why Choose Callio?</h2>
+                <h2 class="section-title">How Callio Rescue works</h2>
                 
                 <div class="features-grid">
                     <div class="feature-card">
-                        <span class="feature-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="5" y="11" width="14" height="10" rx="2"/>
-                                <path d="M9 11V7a3 3 0 0 1 6 0v4"/>
-                            </svg>
-                        </span>
-                        <h3>Complete Privacy</h3>
-                        <p>Randomized names keep your call logs private. No one can see who you're really talking to.</p>
+                        <span class="feature-icon" aria-hidden="true">1</span>
+                        <h3>You miss a call</h3>
+                        <p>Callio notices an unknown missed call and keeps it private on your device.</p>
                     </div>
                     
                     <div class="feature-card">
-                        <span class="feature-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 3a6 6 0 0 0-6 6v9l2-2 2 2 2-2 2 2 2-2 2 2V9a6 6 0 0 0-6-6z"/>
-                                <circle cx="10" cy="11" r="1"/>
-                                <circle cx="14" cy="11" r="1"/>
-                                <path d="M10 14h4"/>
-                            </svg>
-                        </span>
-                        <h3>No Login Required</h3>
-                        <p>We don't collect any personal data. No account, no tracking, just privacy.</p>
+                        <span class="feature-icon" aria-hidden="true">2</span>
+                        <h3>Ask why they called</h3>
+                        <p>Callio prepares a short message you can review, edit, and send yourself.</p>
                     </div>
                     
                     <div class="feature-card">
-                        <span class="feature-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="9"/>
-                                <path d="M3 12h18"/>
-                                <path d="M12 3a15 15 0 0 1 4 9 15 15 0 0 1-4 9 15 15 0 0 1-4-9 15 15 0 0 1 4-9z"/>
-                            </svg>
-                        </span>
-                        <h3>Regional Names</h3>
-                        <p>Choose from 6+ regions including US, UK, France, Germany, Spain, and India.</p>
+                        <span class="feature-icon" aria-hidden="true">3</span>
+                        <h3>Get the answer</h3>
+                        <p>When they reply, Callio connects the response to the missed call and helps you decide what to do next.</p>
                     </div>
                     
                     <div class="feature-card">
-                        <span class="feature-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 4l2.09 4.24 4.69.68-3.39 3.3.8 4.68L12 14.77 7.81 16.9l.8-4.68-3.39-3.3 4.69-.68L12 4z"/>
-                            </svg>
-                        </span>
-                        <h3>Easy to Use</h3>
-                        <p>Simple interface with cute animated mascots. Just install and you're protected.</p>
+                        <span class="feature-icon" aria-hidden="true">🔒</span>
+                        <h3>Private</h3>
+                        <p>Your calls stay yours. No caller database. On-device storage by default.</p>
                     </div>
                     
                     <div class="feature-card">
-                        <span class="feature-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="5" width="18" height="14" rx="2"/>
-                                <path d="M3 10h18"/>
-                                <path d="M7 15h4"/>
-                            </svg>
-                        </span>
-                        <h3>Flexible Plans</h3>
-                        <p>Start free with limited protected calls and ads, or unlock unlimited privacy from €4.99/week, €14.99/month, or €19.99/year. Cancel anytime, no hidden fees.</p>
+                        <span class="feature-icon" aria-hidden="true">✋</span>
+                        <h3>You control every message</h3>
+                        <p>Nothing is sent without your explicit confirmation. No silent SMS.</p>
                     </div>
                     
                     <div class="feature-card">
-                        <span class="feature-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="7" y="3" width="10" height="18" rx="2"/>
-                                <path d="M11 7h2"/>
-                                <path d="M10 17h4"/>
-                            </svg>
-                        </span>
-                        <h3>Works Seamlessly</h3>
-                        <p>Integrates perfectly with your Android device without affecting call quality.</p>
+                        <span class="feature-icon" aria-hidden="true">✨</span>
+                        <h3>Simple</h3>
+                        <p>One job done well: missed call → rescue → reason → action.</p>
                     </div>
                 </div>
             </div>
@@ -878,13 +893,13 @@
                     <!-- Animated Mascot -->
                     <img src="https://qoqbdiixztolvtcjdnle.supabase.co/storage/v1/object/public/Storage/calliolove.png" alt="Callio Love" class="final-mascot">
 
-                    <h2>Ready to get spooky?</h2>
+                    <h2>Never call back blindly.</h2>
 
                     <button class="download-btn" onclick="showComingSoon('Android')">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24c-2.86-1.21-6.08-1.21-8.94 0L5.65 5.67c-.19-.28-.54-.38-.83-.22-.3.16-.42.54-.26.85l1.84 3.18C4.37 10.97 2.89 13.47 2.89 16.3h18.23c-.01-2.83-1.49-5.33-3.52-6.82zM7.4 14.9c-.48 0-.87-.39-.87-.87s.39-.87.87-.87.87.39.87.87-.39.87-.87.87zm9.2 0c-.48 0-.87-.39-.87-.87s.39-.87.87-.87.87.39.87.87-.39.87-.87.87z"/>
                         </svg>
-                        <span>Download for Android</span>
+                        <span>Get Callio</span>
                     </button>
                 </div>
 
@@ -916,71 +931,71 @@
             <div class="content-card faq-list">
                 <div class="faq-item" onclick="toggleFAQ(this)">
                     <div class="faq-question">
-                        How does Callio protect my privacy?
+                        What is Callio?
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        Callio replaces caller information with random generated names in your call logs. Your real contacts remain unchanged on your device, ensuring complete privacy.
+                        Callio is your missed-call rescue assistant. When an unknown number calls and you miss it, Callio helps you find out why — before you decide whether to call back.
                     </div>
                 </div>
                 
                 <div class="faq-item" onclick="toggleFAQ(this)">
                     <div class="faq-question">
-                        Will this affect my actual contacts?
+                        Does Callio send messages automatically?
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        No, Callio only changes what appears in call logs. Your contact list and phone functionality remain completely normal.
+                        No. Callio prepares a short rescue message, but you always review and confirm before anything is sent through your phone’s SMS composer.
                     </div>
                 </div>
                 
                 <div class="faq-item" onclick="toggleFAQ(this)">
                     <div class="faq-question">
-                        Can I choose names from different countries?
+                        Do you upload my call logs?
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        Yes! Premium users can select from 6+ regional name databases including US, UK, France, Germany, Spain, and India.
+                        No. Callio is designed to keep call context on your device. We do not build a central database of phone numbers.
                     </div>
                 </div>
                 
                 <div class="faq-item" onclick="toggleFAQ(this)">
                     <div class="faq-question">
-                        How much does Callio cost?
+                        What permissions does Callio need?
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        Callio has a free plan with limited protected calls per day and ads, plus three premium subscriptions: €4.99 per week, €14.99 per month, or €19.99 per year (save €240). You can cancel anytime with no hidden fees.
+                        To detect missed calls and unknown numbers, Callio may request call log, phone state, and contacts access. SMS is sent through the system composer — Callio is not a default SMS app.
                     </div>
                 </div>
                 
                 <div class="faq-item" onclick="toggleFAQ(this)">
                     <div class="faq-question">
-                        Does Callio collect my personal data?
+                        Is there a paid plan?
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        No. Callio requires no login and collects no personal information. All data stays on your device. Your privacy is our top priority.
+                        The MVP is free while we learn what people need. Callio Plus may later unlock advanced summarization and smart reminders — without gating the core rescue flow during testing.
                     </div>
                 </div>
                 
                 <div class="faq-item" onclick="toggleFAQ(this)">
                     <div class="faq-question">
-                        When will Callio be available?
+                        Can I delete my data?
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        We're working hard to launch on the Google Play Store soon! Join our waitlist to be notified immediately when we go live.
+                        Yes. You can delete individual calls or wipe all Callio data from Settings at any time.
                     </div>
                 </div>
                 
                 <div class="faq-item" onclick="toggleFAQ(this)">
                     <div class="faq-question">
-                        Is Callio available for iOS?
+                        When is Callio available?
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        Currently, Callio is being developed for Android. An iOS version may be available in the future based on demand.
+                        Callio is coming to Google Play. Join the waitlist and we’ll email you when it’s ready. Android first; iOS may follow based on demand.
                     </div>
                 </div>
             </div>
@@ -999,9 +1014,15 @@
             </div>
             
             <div class="content-card contact-card">
-                <h3>Contact Us</h3>
-                <p>Our support team is here to help you with any questions or concerns.</p>
-                <a href="mailto:contact@callio.semprog.de" class="contact-btn">contact@callio.semprog.de</a>
+                <h3>Need help?</h3>
+                <p>General support, feedback, bugs, and app questions.</p>
+                <a href="mailto:support@trycallio.app" class="contact-btn">support@trycallio.app</a>
+            </div>
+
+            <div class="content-card contact-card" style="margin-top: 1.5rem;">
+                <h3>Privacy &amp; data requests</h3>
+                <p>Privacy questions, personal-data requests, deletion requests, and GDPR-related requests.</p>
+                <a href="mailto:privacy@trycallio.app" class="contact-btn">privacy@trycallio.app</a>
             </div>
 
             <button class="nav-btn back-btn" onclick="showPage('home-page')">Back to Home</button>
@@ -1021,16 +1042,16 @@
                 <p><strong>Last Updated: January 01, 2026</strong></p>
                 
                 <h3>Our Commitment to Your Privacy</h3>
-                <p>At Callio, your privacy is our top priority. We designed Callio from the ground up with your privacy in mind. This app is safe to use because we don't collect, store, or share any of your personal information.</p>
+                <p>At Callio, your privacy is our top priority. Callio is a missed-call rescue assistant. We designed it to keep your call context on your device whenever possible.</p>
                 
                 <h3>Data Collection</h3>
-                <p><strong>We do not collect any personal data.</strong> Callio operates entirely on your device. Your call logs, contacts, and usage patterns are never transmitted to our servers or any third parties.</p>
+                <p><strong>Your calls stay yours.</strong> Callio stores rescue context on-device by default. We do not sell call data and we do not build a central caller database.</p>
                 
                 <h3>No Login or Account Required</h3>
                 <p>You don't need to create an account or provide any personal information to use Callio. No email, no phone number, no tracking. Just install and use.</p>
                 
                 <h3>Local Storage</h3>
-                <p>All randomized names and call logs are stored locally on your device. You have complete control and can clear this data anytime from the Settings page within the app.</p>
+                <p>Missed-call records, notes, and rescue messages are stored locally on your device. You can delete individual calls or wipe all Callio data anytime from Settings.</p>
                 
                 <h3>No Third-Party Sharing</h3>
                 <p>We never share your data with:</p>
@@ -1040,22 +1061,18 @@
                     <li>Data brokers</li>
                     <li>Any other third parties</li>
                 </ul>
-                <p>Your privacy is not for sale.</p>
+                <p>Your call data is not for sale. You control every rescue message.</p>
                 
-                <h3>Advertising</h3>
-                <p>Callio displays advertisements to support the free version of the app. However, <strong>we do not collect or share your personal data with advertisers.</strong> Ads are served through third-party ad networks, which may use non-personal information such as your device type and general location (country/region level only) to show relevant ads. No call logs, contacts, or usage patterns are ever shared with ad networks.</p>
-                <p>Premium subscribers enjoy an ad-free experience.</p>
-                
-                <h3>Subscription & Payment Information</h3>
-                <p>Subscriptions are processed through the Google Play Store. We don't handle or store your payment information. Your billing is managed securely by Google.</p>
+                <h3>Monetization</h3>
+                <p>The Callio Rescue MVP is free while we learn what people need. If we introduce optional ads or paid upgrades later, we will not sell your call data, and you will still control every rescue message.</p>
                 
                 <h3>Permissions</h3>
-                <p>Callio requires certain Android permissions to function:</p>
+                <p>Callio may request certain Android permissions to function:</p>
                 <ul>
-                    <li><strong>Phone/Call Logs:</strong> To display randomized names in your call logs</li>
-                    <li><strong>Contacts:</strong> To map randomized names to your contacts (data never leaves your device)</li>
+                    <li><strong>Phone / call logs / phone state:</strong> To detect missed calls from unknown numbers</li>
+                    <li><strong>Contacts:</strong> To distinguish known contacts from unknown callers (data stays on your device)</li>
                 </ul>
-                <p>All permissions are used solely for the app's functionality and no data is ever transmitted externally.</p>
+                <p>Rescue SMS is sent through your phone’s system composer. Callio is not a default SMS app. Permissions are used for app functionality; call context is kept on-device by default.</p>
                 
                 <h3>Cookies & Tracking</h3>
                 <p>We do not use cookies, analytics, or any tracking technologies. We have no idea how you use the app, and that's by design.</p>
@@ -1068,7 +1085,7 @@
                 
                 <h3>Contact Us</h3>
                 <p>If you have any questions about this Privacy Policy, please contact us at:</p>
-                <p><strong>Email:</strong> <a href="mailto:privacy@callio.semprog.de">privacy@callio.semprog.de</a></p>
+                <p><strong>Email:</strong> <a href="mailto:privacy@trycallio.app">privacy@trycallio.app</a></p>
             </div>
 
             <button class="nav-btn back-btn" onclick="showPage('home-page')">Back to Home</button>
@@ -1102,10 +1119,10 @@
         </div>
     </div>
 
-    <!-- Coming Soon Modal -->
+    <!-- Join waitlist Modal -->
     <div id="coming-soon-modal" class="modal">
         <div class="modal-content">
-            <h3>Coming Soon!</h3>
+            <h3>Join waitlist!</h3>
             <p id="modal-text">The iOS app will be available soon. Join our waitlist to be notified when we launch!</p>
             <button class="modal-close" onclick="closeModal()">Got it!</button>
         </div>
@@ -1115,14 +1132,13 @@
         // Initialize
         const ADMIN_PASSWORD = 'callio2026'; // Change this to your desired password
         
-        // Quirky ghost messages for duplicate emails
-        const GHOST_MESSAGES = [
-            "Boo! I already have your email. The ghost remembers!",
-            "Spooky! This email is already haunting our waitlist!",
-            "Ghost speaking: We've already got you on the list!",
-            "Eek! Your email already joined the spirit realm!",
-            "Phantom alert! This email is already registered!",
-            "Double trouble! Your email is already in our ghost book!"
+        const DUPLICATE_EMAIL_MESSAGES = [
+            "Looks like you're already on the list. We'll be in touch.",
+            "This email is already on the waitlist.",
+            "You're already signed up — we'll email you when Callio is ready.",
+            "We've already got this email. No need to join again.",
+            "This email is already registered.",
+            "You're already signed up with this email."
         ];
         
         // Load waitlist from localStorage

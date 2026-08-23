@@ -105,9 +105,9 @@ The site uses Callio's purple gradient theme:
 - Secondary: `#764ba2`
 
 ### Support Email
-Current: `support@callio.app`
+Current: `support@trycallio.app`
 
-To change, search and replace all instances of `support@callio.app` in `index.html`
+To change, search and replace all instances of `support@trycallio.app` in `index.html`
 
 ## 📱 Mobile Optimization
 
@@ -130,4 +130,4 @@ Works on all modern browsers:
 
 ---
 
-**Need help?** Contact support@callio.app
+**Need help?** Contact support@trycallio.app
