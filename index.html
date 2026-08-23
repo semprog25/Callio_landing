@@ -201,7 +201,7 @@
         .brand-logo {
             max-width: 280px;
             height: auto;
-            margin-bottom: 2rem;
+            margin-bottom: 0.75rem;
             filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
             animation: fadeInUp 0.8s ease-out;
             display: block;
@@ -1190,8 +1190,7 @@
                 
                 updateWaitlistCount();
             } else if (emailExists) {
-                // Show quirky ghost message for duplicate
-                const randomMessage = GHOST_MESSAGES[Math.floor(Math.random() * GHOST_MESSAGES.length)];
+                const randomMessage = DUPLICATE_EMAIL_MESSAGES[Math.floor(Math.random() * DUPLICATE_EMAIL_MESSAGES.length)];
                 errorText.innerHTML = randomMessage;
                 errorMsg.classList.add('show');
                 setTimeout(() => {
