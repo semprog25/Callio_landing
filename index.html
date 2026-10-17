@@ -215,6 +215,7 @@
     .site-footer a { color:#e9d5ff; }
     .footer-bottom { margin-top:1.8rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,.12); display:flex; flex-wrap:wrap; gap:.75rem; justify-content:space-between; font-size:.84rem; opacity:.8; }
     .admin-link { opacity:.45; }
+    .view-credit { text-align:center; color:var(--muted); font-size:.84rem; margin-top:-2.2rem; padding-bottom:1.8rem; position:relative; }
 
     .toast { display:none; margin-top:.8rem; background:#fff; color:var(--purple-deep); border-radius:14px; padding:.8rem 1rem; box-shadow:var(--shadow); font-weight:600; }
     .toast.show { display:block; }
@@ -473,6 +474,7 @@
       </div>
       <div class="container footer-bottom">
         <span>© 2026 Callio. All rights reserved.</span>
+        <span class="dev-credit">Developed by SEMPROG</span>
         <a class="admin-link" href="#" onclick="showPage('admin-page'); return false;">Admin</a>
       </div>
     </footer>
@@ -487,6 +489,7 @@
       <p><a href="mailto:privacy@trycallio.app">privacy@trycallio.app</a></p>
       <button class="btn btn-ink back-home" type="button" onclick="showHome()">Back to Home</button>
     </div></div>
+    <footer class="view-credit"><p>Developed by SEMPROG</p></footer>
   </div>
 
   <div id="privacy-page" class="page-view">
@@ -507,6 +510,7 @@
       <p>Privacy questions: <a href="mailto:privacy@trycallio.app">privacy@trycallio.app</a></p>
       <button class="btn btn-ink back-home" type="button" onclick="showHome()">Back to Home</button>
     </div></div>
+    <footer class="view-credit"><p>Developed by SEMPROG</p></footer>
   </div>
 
   <div id="admin-page" class="page-view">
