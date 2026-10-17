@@ -170,7 +170,7 @@
     .privacy-visual img { width:min(250px,70%); filter:drop-shadow(0 18px 30px rgba(0,0,0,.35)); }
     .privacy-caveat { margin-top:1.1rem; font-size:.9rem; color:rgba(255,255,255,.75); }
 
-    .diff { background:var(--cream); }
+    .diff { position:relative; }
     .diff-table { display:grid; gap:.85rem; }
     @media (min-width:800px){ .diff-table{ grid-template-columns:repeat(3,1fr);} }
     .diff-col { background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:1.3rem; }
@@ -197,7 +197,7 @@
     .trust { background:#fff; }
     .trust-grid { display:grid; gap:.85rem; }
     @media (min-width:800px){ .trust-grid{ grid-template-columns:repeat(3,1fr);} }
-    .trust-card { border:1px solid var(--line); border-radius:18px; padding:1.15rem; background:var(--cream); }
+    .trust-card { border:1px solid var(--line); border-radius:18px; padding:1.15rem; position:relative; }
     .trust-card h3 { font-size:1.02rem; margin-bottom:.35rem; color:var(--purple-ink); }
     .trust-card p { color:var(--muted); font-size:.94rem; }
     .trust-card a { color:var(--purple-deep); }
@@ -215,13 +215,14 @@
     .site-footer a { color:#e9d5ff; }
     .footer-bottom { margin-top:1.8rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,.12); display:flex; flex-wrap:wrap; gap:.75rem; justify-content:space-between; font-size:.84rem; opacity:.8; }
     .admin-link { opacity:.45; }
+    .view-credit { text-align:center; color:var(--muted); font-size:.84rem; margin-top:-2.2rem; padding-bottom:1.8rem; position:relative; }
 
     .toast { display:none; margin-top:.8rem; background:#fff; color:var(--purple-deep); border-radius:14px; padding:.8rem 1rem; box-shadow:var(--shadow); font-weight:600; }
     .toast.show { display:block; }
     .toast.error { color:#b91c1c; }
     .page-view { display:none; }
     .page-view.active { display:block; }
-    .content-page { min-height:70vh; padding:3rem 0 4rem; background:var(--cream); }
+    .content-page { min-height:70vh; padding:3rem 0 4rem; position:relative; }
     .content-card { background:#fff; border-radius:var(--radius); padding:1.7rem; border:1px solid var(--line); box-shadow:var(--shadow); max-width:820px; margin:0 auto; }
     .content-card h1 { font-family:Fredoka,sans-serif; color:var(--purple-ink); margin-bottom:.7rem; }
     .content-card h3 { margin-top:1.3rem; margin-bottom:.4rem; color:var(--purple-ink); }
@@ -473,6 +474,7 @@
       </div>
       <div class="container footer-bottom">
         <span>© 2026 Callio. All rights reserved.</span>
+        <span class="dev-credit">Developed by SEMPROG</span>
         <a class="admin-link" href="#" onclick="showPage('admin-page'); return false;">Admin</a>
       </div>
     </footer>
@@ -487,6 +489,7 @@
       <p><a href="mailto:privacy@trycallio.app">privacy@trycallio.app</a></p>
       <button class="btn btn-ink back-home" type="button" onclick="showHome()">Back to Home</button>
     </div></div>
+    <footer class="view-credit"><p>Developed by SEMPROG</p></footer>
   </div>
 
   <div id="privacy-page" class="page-view">
@@ -507,6 +510,7 @@
       <p>Privacy questions: <a href="mailto:privacy@trycallio.app">privacy@trycallio.app</a></p>
       <button class="btn btn-ink back-home" type="button" onclick="showHome()">Back to Home</button>
     </div></div>
+    <footer class="view-credit"><p>Developed by SEMPROG</p></footer>
   </div>
 
   <div id="admin-page" class="page-view">
